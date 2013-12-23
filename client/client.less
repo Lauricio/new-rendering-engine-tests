@@ -1,0 +1,60 @@
+.scrollable{
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transition-property: top, bottom;
+    transition-property: top, bottom;
+    -webkit-transition-duration: .2s, .2s;
+    transition-duration: .2s, .2s;
+    -webkit-transition-timing-function: linear, linear;
+    transition-timing-function: linear, linear;
+    -webkit-overflow-scrolling: touch;
+}
+
+.menu-left-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#content {
+  z-index: 10;
+}
+
+
+
+
+.main-modal {
+    position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+  visibility: hidden;
+
+    // transform: translateX(-100%) translateY(-100%);
+    backface-visibility: hidden;
+    // transform: scale(0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
+
+  &.is-visible {
+    z-index: 100;
+    visibility: visible;
+      // transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.main-modal-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color:white;
+  background-color: #34495e;
+  padding: 2em;
+background-color: #27ae60;
+}
