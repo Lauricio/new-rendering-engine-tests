@@ -5,6 +5,11 @@ Meteor.startup(function () {
     Session.set("isTouch", Modernizr.touch);
 });
 
+Handlebars.registerHelper('Touch',function(input){
+    return Session.equals("isTouch", true) ? 'Touch' : 'Click';
+});
+
+
   Session.set('dataOn', false)
 
 function DataOnTime () {
@@ -24,7 +29,7 @@ Template.ionscroller.helpers({
 });
 
 Template.hello.events({
-  'click .js-startInsertClick': function () {
+  'click #insert-agendaClick, tap #insert-agendaTouch': function () {
     if (Session.get('dataOn')) {
       Session.set('dataOn', false)
     } else
