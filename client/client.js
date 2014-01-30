@@ -144,7 +144,7 @@ UI.body.events({
     'click #toggle-left-menuClick, tap #toggle-left-menuTouch' :function () {
       sm.toggleLeft();
   },
-      'click #toggle-right-menu' :function () {
+      'click #toggle-right-menuClick, tap #toggle-right-menuTouch' :function () {
       sm.toggleRight();
   },
       'tap #open-modal' :function () {
