@@ -15,7 +15,7 @@ Handlebars.registerHelper('Touch',function(input){
 function DataOnTime () {
   Session.set('dataOn', true)
   var interval = Meteor.setInterval(function () {
-    Agenda.insert({agenda:'agenda'})
+    Agenda.insert({createdAt: new Date()})
     if (Session.equals("dataOn", false)) {
         Meteor.clearInterval(interval)
     }
@@ -24,7 +24,7 @@ function DataOnTime () {
 
 Template.ionscroller.helpers({
   agenda: function () {
-    return Agenda.find();
+    return Agenda.find({}, {sort: {createdAt: -1}});
   }
 });
 
@@ -34,5 +34,5 @@ Template.hello.events({
       Session.set('dataOn', false)
     } else
           DataOnTime();
-  }
+   }       
 })

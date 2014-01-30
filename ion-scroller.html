@@ -3,10 +3,12 @@
   <div class="XXXscroller XXXspark-scrollable XXXscroll XXXspark-scrollable-height" >
             
             <div class="list" id="main-list">
+            {{#each agenda}}
               <div class="agenda-item">
                 <span class="icon ion-social-apple"></span>
-                <h4 class="title">Some Title</h4>
+                <h4 class="title">{{_id}}</h4>
               </div>
+            {{/each}}
             </div>
    </div>
    </div>         
