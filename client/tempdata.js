@@ -37,8 +37,8 @@ Template.hello.events({
    },
    'click #delete-agenda': function () {
     Meteor.call('deleteAgenda')
-   }.
-   '': function () {
+   },
+   'click #insert-agenda': function () {
     for (var i = 20; i >= 0; i--) {
       Agenda.insert({createdAt: new Date()})
     };
