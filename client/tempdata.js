@@ -19,7 +19,7 @@ function DataOnTime () {
     if (Session.equals("dataOn", false)) {
         Meteor.clearInterval(interval)
     }
-  }, 5)
+  }, 5000)
 }
 
 Template.ionscroller.helpers({
