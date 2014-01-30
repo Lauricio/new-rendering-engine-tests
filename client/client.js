@@ -53,6 +53,7 @@ Session.set("output", "unset")
 };
 
 Template.ionscroller.rendered = function () {
+  console.log("%c Rendered:    iscroll    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
   /*
    Ionic Scroll + List
    */
@@ -77,6 +78,10 @@ Template.ionscroller.rendered = function () {
 
 };
 
+
+// Template.agendaItem.rendered = function () {
+//   console.log("%c Rendered:    agendaItem    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
+// };
 
 Template.hello.checked = function () {
   return Session.get("checker");

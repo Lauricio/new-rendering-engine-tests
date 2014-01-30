@@ -6095,15 +6095,15 @@ ionic.controllers.NavController = ionic.controllers.ViewController.inherit({
       this._leftShowing = false;
       this._isDragging = false;
 
-      if(this.content) {
-        this.content.onDrag = function(e) {
-          self._handleDrag(e);
-        };
+      // if(this.content) {
+      //   this.content.onDrag = function(e) {
+      //     self._handleDrag(e);
+      //   };
 
-        this.content.onEndDrag =function(e) {
-          self._endDrag(e);
-        };
-      }
+      //   this.content.onEndDrag =function(e) {
+      //     self._endDrag(e);
+      //   };
+      // }
     },
     /**
      * Set the content view controller if not passed in the constructor options.

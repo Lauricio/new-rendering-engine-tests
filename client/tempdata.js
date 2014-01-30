@@ -19,14 +19,27 @@ function DataOnTime () {
     if (Session.equals("dataOn", false)) {
         Meteor.clearInterval(interval)
     }
-  }, 5000)
+  }, 2000)
 }
 
 Template.ionscroller.helpers({
   agenda: function () {
     return Agenda.find({}, {sort: {createdAt: -1}});
   }
+
+
 });
+
+Template.hello.helpers({
+  itemCount: function() {
+    return Agenda.find().count();
+  }
+
+
+});
+
+
+
 
 Template.hello.events({
   'click #insert-agendaClick, tap #insert-agendaTouch': function () {

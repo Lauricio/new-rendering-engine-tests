@@ -37,46 +37,7 @@
 @menu-icon: #E4E4E4;
 
 
-.scrollable{
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-transition-property: top, bottom;
-    transition-property: top, bottom;
-    -webkit-transition-duration: .2s, .2s;
-    transition-duration: .2s, .2s;
-    -webkit-transition-timing-function: linear, linear;
-    transition-timing-function: linear, linear;
-    -webkit-overflow-scrolling: touch;
-}
 
-.spark-scrollable {
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-}
-
-.spark-scrollable-height {
-  position: absolute;
-  top: 64px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.scroller {
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
-  position: absolute;
-  top: 64px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.spark-wrapper {
-  margin-top: 64px;
-}
 
 .menu-left-content {
   position: absolute;
@@ -169,11 +130,75 @@ background-color: #27ae60;
 
 .spark-header {
   .insert-button {
-    margin-left: 50px;
+    margin-left: 20px;
   }
 
   .delete-button{
-    margin-left: 100px;
+    margin-left: 30px;
     float: right;
   }
+}
+
+//
+//      Content
+//
+
+.content-holder-left {
+  right: 60% !important;
+}
+
+.content-holder-right {
+  left: 60% !important;
+}
+
+.scrollable{
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-transition-property: top, bottom;
+    transition-property: top, bottom;
+    -webkit-transition-duration: .2s, .2s;
+    transition-duration: .2s, .2s;
+    -webkit-transition-timing-function: linear, linear;
+    transition-timing-function: linear, linear;
+    -webkit-overflow-scrolling: touch;
+}
+
+.spark-scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.spark-scrollable-height {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scroller-right {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 60%;
+  right: 0;
+}
+
+.spark-wrapper {
+  margin-top: 64px;
 }
