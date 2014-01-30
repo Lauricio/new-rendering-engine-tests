@@ -10,6 +10,35 @@
     -webkit-overflow-scrolling: touch;
 }
 
+.spark-scrollable {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+.spark-scrollable-height {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.scroller {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.spark-wrapper {
+  margin-top: 64px;
+}
+
 .menu-left-content {
   position: absolute;
   top: 0;
@@ -22,6 +51,13 @@
 }
 
 
+.main-content-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 
 .main-modal {
@@ -58,3 +94,4 @@
   padding: 2em;
 background-color: #27ae60;
 }
+

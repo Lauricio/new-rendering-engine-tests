@@ -1,59 +1,157 @@
 sm = {};
+Session.set("checker", "checked");
 
-Template.hello.created = function () {
-  Meteor.defer(function () {
-    console.log('created')
-
-    var leftMenuElList = document.getElementById('menu-left-list');
-    var list = new ionic.views.ListView({
-      el: leftMenuElList
-    });
+Template.hello.rendered = function () {
+  console.log("%c Rendered:    hello    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
 
 
+  var contentEl = document.getElementById('content');
+  var content = new ionic.views.SideMenuContent({
+    el: contentEl
+  });
 
-    var contentEl = document.getElementById('content');
-    var content = new ionic.views.SideMenuContent({
-      el: contentEl
-    });
 
-    var leftMenuEl = document.getElementById('menu-left');
-    var leftMenu = new ionic.views.SideMenu({
-      el: leftMenuEl,
-      width: 270
-    });
+  var leftMenuEl = document.getElementById('menu-left');
+  var leftMenu = new ionic.views.SideMenu({
+    el: leftMenuEl,
+    width: 270
+  });
 
-    var rightMenuEl = document.getElementById('menu-right');
-    var rightMenu = new ionic.views.SideMenu({
-      el: rightMenuEl,
-      width: 270
-    });
+  var rightMenuEl = document.getElementById('menu-right');
+  var rightMenu = new ionic.views.SideMenu({
+    el: rightMenuEl,
+    width: 270
+  });
 
-    sm = new ionic.controllers.SideMenuController({
-      content: content,
-      left: leftMenu,
-      right: rightMenu
-    });
+  var menuListEl = document.getElementById('scrolling');
+  var menuList = new ionic.views.Scroll({
+    el: menuListEl
+  });
 
-    $('body').addClass("platform-ios7");
+  // var modalEl = document.getElementById('modal-scroll');
+  // var modalScroll = new ionic.views.Scroll({
+  //   el: modalEl
+  // });
 
-  })}
+Session.set("output", "unset")
 
+
+
+
+
+  sm = new ionic.controllers.SideMenuController({
+    content: content,
+    left: leftMenu,
+    right: rightMenu,
+    dragThresholdX: 50,
+  });
+
+  $('body').addClass("platform-ios7");
+
+
+
+};
+
+Template.ionscroller.rendered = function () {
+  /*
+   Ionic Scroll + List
+   */
+  var contentScrollDOM = document.getElementById('main-scroll');
+  var contentScroll = new ionic.views.Scroll({
+    el: contentScrollDOM
+  });
+
+  var contentListDOM = document.getElementById('main-list');
+  var contentList = new ionic.views.ListView({
+    el: contentListDOM
+  });
+
+  /*
+    iscroller
+   */
+  
+  // var myScroll = new IScroll('#main-scroll', {
+  //     mouseWheel: true,
+  //     scrollbars: true
+  // });
+
+};
+
+
+Template.hello.checked = function () {
+  return Session.get("checker");
+};
+
+// Template.hello.created = function () {
+//   Meteor.defer(function () {
+//     console.log('created')
+
+//     // var leftMenuElList = document.getElementById('menu-left-list');
+//     // var list = new ionic.views.ListView({
+//     //   el: leftMenuElList
+//     // });
+
+
+
+//     var contentEl = document.getElementById('content');
+//     var content = new ionic.views.SideMenuContent({
+//       el: contentEl
+//     });
+
+//     var leftMenuEl = document.getElementById('menu-left');
+//     var leftMenu = new ionic.views.SideMenu({
+//       el: leftMenuEl,
+//       width: 270
+//     });
+
+//     var rightMenuEl = document.getElementById('menu-right');
+//     var rightMenu = new ionic.views.SideMenu({
+//       el: rightMenuEl,
+//       width: 270
+//     });
+
+//     sm = new ionic.controllers.SideMenuController({
+//       content: content,
+//       left: leftMenu,
+//       right: rightMenu
+//     });
+
+//     $('body').addClass("platform-ios7");
+
+//   })}
+
+UI.body.events({
+    'tap #close-modal' :function () {
+      alert("close!")
+        $( "#mainModal" ).removeClass( "is-visible" );
+        // StatusBar.show();
+    }
+});
 
   Template.hello.events({
+    'click #plus' :function () {
+      Session.set("checker", Random.id())
+  },
+  //   'click #plus, tap #plus' :function () {
+  //     alert("hh")
+  //     Session.set("checker", Random.id())
+  // },
     'click #toggle-left-menu' :function () {
       sm.toggleLeft();
   },
       'click #toggle-right-menu' :function () {
       sm.toggleRight();
   },
-      'click #open-modal' :function () {
+      'tap #open-modal' :function () {
         $( "#mainModal" ).addClass( "is-visible" );
-        StatusBar.hide();
+        // StatusBar.hide();
     },
+
+
       'click #close-modal' :function () {
-        $( "#mainModal" ).removeClass( "is-visible" );
-        StatusBar.show();
-    }
+            $( "#mainModal" ).removeClass( "is-visible" );
+            // StatusBar.show();
+        }
 
 
   // ,

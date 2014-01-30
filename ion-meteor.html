@@ -13,8 +13,11 @@
 <template name="hello">
 
 <div class="main-modal" id="mainModal">
-  <div class="main-modal-content scrollable">
+  <div class="main-modal-content " id="modal-scroll" data-scrollable="y">
     
+<div>
+
+
   <div><button class="button button-balanced modal-toggle" id="close-modal">modal</button> 
       <p>The Default demo shows basic Snap.js functionality</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
@@ -48,49 +51,18 @@
   </div>
 </div>
 </div>
-
+</div>
   <!-- Center content -->
   <div id="content" class="pane">
     <header class="bar bar-header bar-dark">
       <button class="button button-clear icon ion-navicon" id="toggle-left-menu"></button>
-      <h1 class="title">Header</h1>
+      <h1 class="title">{{showOutput}} {{getHeight}} {{getFullHeight}}</h1>
       <button class="button button-clear icon ion-ios7-bell" id="toggle-right-menu"></button>
     </header>
-    <ul class="list has-header">
-
-      <li class="item item-toggle">
-         HTML5
-         <label class="toggle">
-           <input type="checkbox">
-           <div class="track">
-             <div class="handle"></div>
-           </div>
-         </label>
-      </li>
-
-      <li class="item item-toggle">
-         HTML5
-         <label class="toggle">
-           <input type="checkbox">
-           <div class="track">
-             <div class="handle"></div>
-           </div>
-         </label>
-      </li>
-
-      <li class="item item-toggle">
-         HTML5
-         <label class="toggle">
-           <input type="checkbox">
-           <div class="track">
-             <div class="handle"></div>
-           </div>
-         </label>
-      </li>
-
-    <button class="button button-block button-positive" id="open-modal">Block Button</button>
-    </ul>
-
+    
+{{> ionscroller}}
+{{! > nativescroller}}
+{{! > nativescrollerspark}}
 
   </div>
 
@@ -102,15 +74,17 @@
   
   <!-- <div class="menu-left-content scrollable"> -->
     <!-- <div class="snap-drawer has-header"> -->
-  <div class="scroll-content has-header" >
-  <div class="scroll">
+  <div class="scroll-content has-header " id="scrolling" >
+  <!-- <div class="scroll" data-scrollable="y" > -->
 
     <ul class="list " id="menu-left-list">
         <li class="item">Some 1</li>
         <li class="item">Some 2</li>
         <li class="item">Some 3</li>
+
         <li class="item">Some 4</li>
         <li class="item">Some 5</li>
+
         <li class="item">Some 6</li>
         <li class="item">Some 7</li>
         <li class="item">Some 8</li>
@@ -128,15 +102,16 @@
         <li class="item">Some 20</li>
     </ul>
 
-    </div>
+    <!-- </div> -->
     </div>
   </div>
 
-  <!-- Right menu -->
+  <!-- Right menu --> 
   <div id="menu-right" class="menu menu-right">
     <header class="bar bar-header bar-dark">
       <h1 class="title">Right</h1>
     </header>
   </div>
+
  
 </template>
