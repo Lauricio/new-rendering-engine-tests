@@ -19,7 +19,7 @@ function DataOnTime () {
     if (Session.equals("dataOn", false)) {
         Meteor.clearInterval(interval)
     }
-  }, 10000)
+  }, 5)
 }
 
 Template.ionscroller.helpers({
@@ -34,5 +34,13 @@ Template.hello.events({
       Session.set('dataOn', false)
     } else
           DataOnTime();
-   }       
+   },
+   'click #delete-agenda': function () {
+    Meteor.call('deleteAgenda')
+   }.
+   '': function () {
+    for (var i = 20; i >= 0; i--) {
+      Agenda.insert({createdAt: new Date()})
+    };
+   }
 })
