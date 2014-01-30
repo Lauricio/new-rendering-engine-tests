@@ -141,7 +141,7 @@ UI.body.events({
   //     alert("hh")
   //     Session.set("checker", Random.id())
   // },
-    'click #toggle-left-menu' :function () {
+    'click #toggle-left-menuClick, tap #toggle-left-menuTouch' :function () {
       sm.toggleLeft();
   },
       'click #toggle-right-menu' :function () {
