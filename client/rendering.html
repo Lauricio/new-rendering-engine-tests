@@ -1,0 +1,98 @@
+<template name="renderingTemplates">
+    {{> hello}}
+  <h3>Forms</h3>
+  {{> formList}}
+  <h3>Notifications</h3>
+  {{> notifications}}
+  <h3>Server Facts</h3>
+  {{> serverFacts}}
+  {{> svg}}
+  {{> modal}}
+</template>
+
+<!-- RENDERING TEMPLATES -->
+
+
+<template name="hello">
+  <div class="content">
+
+    {{> announcement}}
+  </div>
+</template>
+
+<template name="alertNotification">
+  <div class="alert">
+  <h1>{{title}} ALERT</h1>
+    {{> content}}
+  </div>
+</template>
+
+<template name="otherNotification">
+  <div class="other">
+  <h1>{{title}} OTHER</h1>
+    {{> content}}
+  </div>
+</template>
+
+
+<template name="announcement">
+  {{#if currentUser}}
+    {{#each alerts}}
+      <h3>{{_id}} READ: {{readCount}}</h3>
+      <div class="animationCube"></div>
+      <h3>{{createdAt}}</h3>
+      <h4>{{subject}}</h4>
+      <p>{{message}}</p>
+      <button id="deleteAlert" class="btn btn-danger">Delete</button>
+      <button id="updateAlert" class="btn btn-warning">Update Me</button>
+      <h4>ReadBy</h4>
+      {{#each readBy}}
+        <div class="readBy">
+            <h4>{{user}}</h4>
+            <h5>{{readAt}}</h5>
+        </div>
+      {{/each}}
+    {{/each}}
+  {{/if}}  
+</template>
+
+<template name="notifications">
+  {{#each notifications}}
+    {{#ifNotificationType type}}
+      <div class="notification">
+        <h4>{{title}}</h4>
+          <p><b>personal</b>: {{personal}}</p>
+          <p><b>type</b>: {{type}}</p>
+          <p><b>createdBy</b>: {{createdBy}}</p>
+          <p><b>message</b>: {{message}}</p>
+          <p><b>created</b>: {{createdAt}}</p>
+          <p><b>userid</b>: {{userId}}</p>
+          <p><b>readBy </b>: {{readBy}}</p>
+          <p><b>readCount </b>: {{readCount}}</p>
+          <button id="deleteNotification" class="btn btn-danger">Delete</button>
+          <button class="btn btn-info" id="openAlertNotification">Open</button>
+      </div>   
+    {{/ifNotificationType}}
+  {{/each}}
+</template>
+
+
+<template name="modal">
+  <div class=" md-modal md-effect-7 {{visible}}" id="modal-7">
+    <div class="md-content">
+      {{#with alert}}
+        <h3>{{title}} READ: {{readCount}}</h3>
+        <div>
+          <p>{{message}}</p>
+          <ul>
+            <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+            <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+            <li><strong>Close:</strong> click on the button below to close the modal.</li>
+          </ul>
+          <button class="md-close" id="closeAlertModal">Close me!</button>
+        </div>
+      {{/with}}
+    </div>
+  </div>
+  <div class="md-overlay"></div><!-- the overlay element -->
+</template>

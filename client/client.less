@@ -51,49 +51,9 @@
 }
 
 
-.main-content-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 
 
-.main-modal {
-    position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -10;
-  visibility: hidden;
 
-    // transform: translateX(-100%) translateY(-100%);
-    backface-visibility: hidden;
-    // transform: scale(0.7);
-    opacity: 0;
-    transition: opacity 0.3s;
-
-  &.is-visible {
-    z-index: 100;
-    visibility: visible;
-      // transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.main-modal-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  color:white;
-  background-color: #34495e;
-  padding: 2em;
-background-color: #27ae60;
-}
 
 
 //
@@ -129,6 +89,12 @@ background-color: #27ae60;
 //
 
 .spark-header {
+
+}
+
+.spark-sub-header {
+  top: 64px;
+
   .insert-button {
     margin-left: 20px;
   }
@@ -142,6 +108,15 @@ background-color: #27ae60;
 //
 //      Content
 //
+
+
+.main-content-wrapper { //xxx
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 
 .content-holder-left {
   right: 60% !important;
@@ -171,7 +146,7 @@ background-color: #27ae60;
 
 .spark-scrollable-height {
   position: absolute;
-  top: 64px;
+  top: 108px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -182,10 +157,14 @@ background-color: #27ae60;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: absolute;
-  top: 64px;
+  top: 108px;
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.content-holder-left {
+  top: 108px !important;
 }
 
 .scroller-right {
@@ -193,12 +172,51 @@ background-color: #27ae60;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   position: absolute;
-  top: 64px;
+  top: 108px;
   bottom: 0;
   left: 60%;
   right: 0;
 }
 
 .spark-wrapper {
-  margin-top: 64px;
+  margin-top: 108px;
+}
+
+.rendering-wrapper {
+  margin-top: 108px;
+}
+
+
+//
+//      Animation cube
+//
+
+
+@keyframes slide {
+  0% { 
+    transform: translate3d(0px, 0px, 0px);
+  }
+  50% { 
+    transform: translate3d(500px, 0px, 0px);
+  }
+  0% { 
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+.animationCube {
+  animation: slide 15s forwards linear;
+  animation-iteration-count: infinite;
+  background-color: @emerland;
+  width: 50px;
+  height: 15px;
+}
+
+.test-wrap {
+  .test-block {
+    width: 10px;
+    height: 10px;
+    background-color: @alizarin;
+    font-size: 3em;
+  }
 }

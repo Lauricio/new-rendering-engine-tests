@@ -4,9 +4,15 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 preserve-inputs
 less-ap-dev
 random
 jquery
+moment
+migration
+lodash
+facts
+coffeescript
+accounts-password
+accounts-ui

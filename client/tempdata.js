@@ -30,7 +30,7 @@ Template.ionscroller.helpers({
 
 });
 
-Template.hello.helpers({
+Template.hello2.helpers({
   itemCount: function() {
     return Agenda.find().count();
   }
@@ -41,7 +41,7 @@ Template.hello.helpers({
 
 
 
-Template.hello.events({
+Template.hello2.events({
   'click #insert-agendaClick, tap #insert-agendaTouch': function () {
     if (Session.get('dataOn')) {
       Session.set('dataOn', false)

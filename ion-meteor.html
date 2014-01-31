@@ -7,69 +7,34 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> hello2}}
 </body>
 
-<template name="hello">
+<template name="hello2">
 
-<div class="main-modal" id="mainModal">
-  <div class="main-modal-content " id="modal-scroll" data-scrollable="y">
-    
-<div>
-
-
-  <div><button class="button button-balanced modal-toggle" id="close-modal">modal</button> 
-      <p>The Default demo shows basic Snap.js functionality</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-  </div>
-  <div>
-
-
-      <p>The Default demo shows basic Snap.js functionality</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-  </div>
-        <input type="text" class="form-control">
-        <input type="text" class="form-control">
-        <input type="text" class="form-control">
-              <input type="text" class="form-control">
-        <input type="text" class="form-control">
-        <input type="text" class="form-control">
-    <div>
-      <p>The Default demo shows basic Snap.js functionality</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-  </div>
-    <div>
-      <p>The Default demo shows basic Snap.js functionality</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-  </div>
-    <div>
-      <p>The Default demo shows basic Snap.js functionality</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-      <input type="text" class="form-control">
-        <input type="text" class="form-control">
-        <input type="text" class="form-control">
-  </div>
-</div>
-</div>
-</div>
   <!-- Center content -->
   <div id="content" class="pane">
     <header class="bar bar-header bar-dark spark-header">
       <button class="button button-clear icon ion-navicon" id="toggle-left-menu{{Touch}}"></button>
-      <button class="button button-clear  ion-android-storage insert-button" id="insert-agenda"></button>
-      <button class="button button-clear ion-ionic insert-button" id="insert-agendaTouch"></button>
-      <button class="button button-clear icon ion-arrow-down-c  insert-button" id="insert-agendaClick"></button>
-      <button class="button button-clear   ion-checkmark-circled insert-button" id="insert-agenda{{Touch}}"></button>
-
       <h1 class="title">{{itemCount}}</h1>
-      <button class="button button-clear icon ion-android-trash delete-button" id="delete-agenda"></button>
-      <button class="button button-clear icon ion-ios7-bell" id="toggle-right-menu{{Touch}}"></button>
+      <button class="button button-clear" id="toggle-right-menu{{Touch}}">{{currentUser.unreadNotifications}} <span class="icon ion-ios7-bell"></span></button>
     </header>
+    <div class="spark-sub-header bar bar-dark">
+      <button class="button button-clear  ion-android-storage insert-button" id="insert-agenda"></button>
+      {{> loginButtons}}
+      <button class="button button-clear   ion-checkmark-circled insert-button" id="insert-agenda{{Touch}}"></button>
+      <button class="button button-clear icon ion-android-trash delete-button" id="delete-agenda"></button>
+      <button class="button button-clear icon ion-plus-round delete-button" id="updateAlerts"></button>
+      <button class="button button-clear icon ion-chatbox delete-button" id="insertAlert"></button>
+    </div>
     
-{{> ionscroller}}
-{{! > nativescroller}}
-{{! > nativescrollerspark}}
+      {{! > ionscroller}}
+      {{! > nativescroller}}
+      {{! > nativescrollerspark}}
 
+      <div class="rendering-wrapper">
+        {{> renderingTemplates}}
+      </div>
   </div>
 
   <!-- Left menu -->
@@ -121,3 +86,6 @@
 
  
 </template>
+
+
+
