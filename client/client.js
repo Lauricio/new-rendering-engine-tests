@@ -92,7 +92,7 @@ Template.hello2.checked = function () {
     'click #toggle-right-menuClick, tap #toggle-right-menuTouch' :function () {
       sm.toggleRight();
     },
-      'click #insertAlert' :function () {
+      'click #insertAlertClick, tap #insertAlertTouch' :function () {
     Meteor.call('createAlert');
   },
     'click #updateAlerts' :function () {

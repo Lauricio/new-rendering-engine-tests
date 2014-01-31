@@ -48,10 +48,10 @@ Template.hello2.events({
     } else
           DataOnTime();
    },
-   'click #delete-agenda': function () {
+   'click #delete-agendaClick, tap #delete-agendaTouch': function () {
     Meteor.call('deleteAgenda')
    },
-   'click #insert-agenda': function () {
+   'click #insert-20-agendaClick, tap #insert-20-agendaTouch': function () {
     for (var i = 20; i >= 0; i--) {
       Agenda.insert({createdAt: new Date()})
     };
