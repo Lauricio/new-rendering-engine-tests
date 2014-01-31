@@ -55,5 +55,22 @@ Template.hello2.events({
     for (var i = 20; i >= 0; i--) {
       Agenda.insert({createdAt: new Date()})
     };
-   }
+   },
+     'click #open-modalClick, tap #open-modalTouch ' :function () {
+        $( "#mainModal" ).addClass( "is-visible" );
+        // StatusBar.hide();
+    },
+      'click #close-modalClick, tap #close-modalTouch' :function () {
+            $( "#mainModal" ).removeClass( "is-visible" );
+            // StatusBar.show();
+        },
+         'click #open-snap-modalClick, tap #open-snap-modalTouch ' :function () {
+            $( "#snapMainModal" ).addClass( "is-visible" );
+            setheight();
+            // StatusBar.hide();
+        },
+          'click .close-snap-modalClick, tap .close-snap-modalTouch' :function () {
+                $( "#snapMainModal" ).removeClass( "is-visible" );
+                // StatusBar.show();
+            }
 })

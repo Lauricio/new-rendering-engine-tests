@@ -33,7 +33,7 @@ Template.hello2.rendered = function () {
   //   el: modalEl
   // });
 
-Session.set("output", "unset")
+
 
   sm = new ionic.controllers.SideMenuController({
     content: content,
@@ -81,13 +81,6 @@ Template.hello2.checked = function () {
 };
 
 
-UI.body.events({
-    'tap #close-modal' :function () {
-      alert("close!")
-        $( "#mainModal" ).removeClass( "is-visible" );
-        // StatusBar.show();
-    }
-});
 
   Template.hello2.events({
     'click #plus' :function () {
