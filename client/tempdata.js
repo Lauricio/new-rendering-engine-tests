@@ -76,5 +76,9 @@ Template.hello2.events({
                 Session.set("hideOverflow", false)
                 $( "#snapMainModal" ).removeClass( "is-visible" );
                 // StatusBar.show();
-            }
+            },
+        'click #test-overflowClick, tap #test-overflowTouch': function () {
+          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
+        }    
+
 })
