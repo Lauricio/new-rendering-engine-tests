@@ -48,9 +48,6 @@ Template.hello2.rendered = function () {
 
 };
 
-Template.agendaItem.rendered = function () {
-  console.log("%c Rendered:    agendaItem    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
-};
 
 Template.ionscroller.rendered = function () {
   console.log("%c Rendered:    iscroll    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);

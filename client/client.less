@@ -143,6 +143,9 @@ background-color: @nephritis;
 //
 
 .agenda-item {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
+
   display: flex;
 
   .icon {
@@ -235,9 +238,11 @@ background-color: @nephritis;
 }
 
 .native-scroller {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
   overflow-y: auto;
   overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
   position: absolute;
   top: 108px;
   bottom: 0;
@@ -274,6 +279,10 @@ background-color: @nephritis;
 
 .hide-overflow {
   overflow: hidden;
+}
+
+.show-overflow {
+  -webkit-overflow-scrolling: touch;
 }
 
 .spark-wrapper {
