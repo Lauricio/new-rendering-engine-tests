@@ -56,13 +56,15 @@
 //
 
 .main-modal {
-    position: absolute;
+    position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -10;
+  // display: none;
   visibility: hidden;
+
 
     transform: translate3d(0, 200%, 0);
     backface-visibility: hidden;
@@ -76,7 +78,16 @@
     transform: translate3d(0, 0, 0);
       // transform: scale(1);
     // opacity: 1;
+
+    .scrollable {
+      // display: block;
+    }
   }
+
+  .scrollable {
+    // display: none;
+  }
+
 }
 
 .main-modal-content {
@@ -88,6 +99,7 @@
   color:white;
   padding: 2em;
 background-color: @nephritis;
+// width: 20%;
 
 }
  
@@ -143,6 +155,9 @@ background-color: @nephritis;
 //
 
 .agenda-item {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
+
   display: flex;
 
   .icon {
@@ -235,6 +250,8 @@ background-color: @nephritis;
 }
 
 .native-scroller {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -276,12 +293,42 @@ background-color: @nephritis;
   overflow: hidden;
 }
 
+.show-overflow {
+  -webkit-overflow-scrolling: touch;
+}
+
+
+//
+//      misc
+//
+
+
 .spark-wrapper {
   margin-top: 108px;
 }
 
 .rendering-wrapper {
   margin-top: 108px;
+}
+
+
+//
+//      Backdrop
+//
+
+.main-backdrop {
+  position: fixed;
+  top: 108px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+  // visibility: hidden;
+
+  .is-visible {
+
+  }
 }
 
 

@@ -58,11 +58,11 @@ Template.hello2.events({
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
         $( "#mainModal" ).addClass( "is-visible" );
-        Session.set("hideOverflow", true)
+        // Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
       'click #close-modalClick, tap #close-modalTouch' :function () {
-            Session.set("hideOverflow", false)
+            // Session.set("hideOverflow", false)
             $( "#mainModal" ).removeClass( "is-visible" );
             // StatusBar.show();
         },

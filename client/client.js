@@ -48,9 +48,6 @@ Template.hello2.rendered = function () {
 
 };
 
-Template.agendaItem.rendered = function () {
-  console.log("%c Rendered:    agendaItem    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
-};
 
 Template.ionscroller.rendered = function () {
   console.log("%c Rendered:    iscroll    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
@@ -62,10 +59,10 @@ Template.ionscroller.rendered = function () {
   //   el: contentScrollDOM
   // });
 
-  var contentListDOM = document.getElementById('main-list');
-  var contentList = new ionic.views.ListView({
-    el: contentListDOM
-  });
+  // var contentListDOM = document.getElementById('main-list');
+  // var contentList = new ionic.views.ListView({
+  //   el: contentListDOM
+  // });
 
   /*
     iscroller
@@ -104,6 +101,18 @@ Template.hello2.checked = function () {
   },
    'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
           Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
-        }    
-
+        }, 
+        'touchmove #main-backdrop': function (e) {
+               e.preventDefault();
+               // alert("tap");
+               // alert("move");
+                // e.stopPropagation();
+             },
+    'webkitTransitionEnd #mainModal': function (e) {
+            // alert("END")
+            Session.set("hideOverflow", true);
+         }
   });
+
+
+  

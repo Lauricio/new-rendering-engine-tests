@@ -3,5 +3,6 @@ Handlebars.registerHelper("showOutput", function(key){
 });
 
 Handlebars.registerHelper("hideOverflow", function(key){
-     return Session.get("hideOverflow") ? 'hide-overflow' : '';
+     return Session.get("hideOverflow") ? 'hide-overflow' : 'show-overflow';
 });
+
