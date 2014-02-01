@@ -57,8 +57,8 @@ Template.hello2.events({
     };
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
-        Session.set("hideOverflow", true)
         $( "#mainModal" ).addClass( "is-visible" );
+        Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
       'click #close-modalClick, tap #close-modalTouch' :function () {
@@ -67,8 +67,8 @@ Template.hello2.events({
             // StatusBar.show();
         },
          'click #open-snap-modalClick, tap #open-snap-modalTouch ' :function () {
-            Session.set("hideOverflow", true)
             $( "#snapMainModal" ).addClass( "is-visible" );
+            Session.set("hideOverflow", true)
             setheight();
             // StatusBar.hide();
         },
