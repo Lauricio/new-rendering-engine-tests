@@ -38,7 +38,7 @@ Template.hello2.helpers({
 
 });
 
-
+Session.set("hideOverflow", false)
 
 
 Template.hello2.events({
@@ -57,19 +57,23 @@ Template.hello2.events({
     };
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
+        Session.set("hideOverflow", true)
         $( "#mainModal" ).addClass( "is-visible" );
         // StatusBar.hide();
     },
       'click #close-modalClick, tap #close-modalTouch' :function () {
+            Session.set("hideOverflow", false)
             $( "#mainModal" ).removeClass( "is-visible" );
             // StatusBar.show();
         },
          'click #open-snap-modalClick, tap #open-snap-modalTouch ' :function () {
+            Session.set("hideOverflow", true)
             $( "#snapMainModal" ).addClass( "is-visible" );
             setheight();
             // StatusBar.hide();
         },
           'click .close-snap-modalClick, tap .close-snap-modalTouch' :function () {
+                Session.set("hideOverflow", false)
                 $( "#snapMainModal" ).removeClass( "is-visible" );
                 // StatusBar.show();
             }
