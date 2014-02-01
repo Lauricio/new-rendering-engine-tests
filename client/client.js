@@ -102,4 +102,8 @@ Template.hello2.checked = function () {
     'click #updateAlerts' :function () {
     Meteor.call('updateAlerts');
   },
+   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
+          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
+        }    
+
   });

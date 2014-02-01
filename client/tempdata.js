@@ -81,4 +81,4 @@ Template.hello2.events({
           Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
         }    
 
-})
+});
