@@ -53,10 +53,10 @@ Template.ionscroller.rendered = function () {
   /*
    Ionic Scroll + List
    */
-  var contentScrollDOM = document.getElementById('main-scroll');
-  var contentScroll = new ionic.views.Scroll({
-    el: contentScrollDOM
-  });
+  // var contentScrollDOM = document.getElementById('main-scroll');
+  // var contentScroll = new ionic.views.Scroll({
+  //   el: contentScrollDOM
+  // });
 
   var contentListDOM = document.getElementById('main-list');
   var contentList = new ionic.views.ListView({
