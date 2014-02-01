@@ -23,8 +23,15 @@
 </head>
 
 <body>
-  {{> hello2}}
+ 
+
 </body>
+
+<template name="layout">
+   {{> hello2}}
+
+   {{> yield}}
+</template>
 
 <template name="hello2">
 
@@ -112,7 +119,7 @@
     
 <div>
 
-
+{{> layout}}
   <div>
       <p>The Default demo shows basic Snap.js functionality</p>
       <button id="close-modal{{Touch}}">modal</button> 
@@ -162,6 +169,3 @@
 </div>
 
 </template>
-
-
-
