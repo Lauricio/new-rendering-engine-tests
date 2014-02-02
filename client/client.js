@@ -127,6 +127,17 @@ Template.mainModal.events({
         // Session.set("hideOverflow", false)
         $( "#mainModal" ).removeClass( "is-visible" );
         // StatusBar.show();
-    },      
+    },
+  'click #Trinti'  : function (e, t) {
+    console.log(this)
+    var self = this;
+    var element = document.getElementById(self._id)
+    element.addEventListener( 'webkitTransitionEnd', 
+    function( event ) { 
+      console.dir(element)
+      Modals.remove({'_id': self._id})
+    }, false );
+    $(element).addClass('animate')
+  }
 })
   //  Modals.insert({templateName: 'mainModalContent'})
