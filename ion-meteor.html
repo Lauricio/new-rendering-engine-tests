@@ -123,7 +123,7 @@
   <div class="main-modal" id="mainModal">
   <div class="main-modal-content scrollable" id="modal-scroll" XXXdata-scrollable="y">
 {{#each modals}}
-  <div style="z-index:{{Zindex}}">
+  <div style="z-index:{{Zindex}}" class="each-modal">
     {{> AnimateTemplate template=templateName}}
   </div>
 
@@ -133,7 +133,7 @@
 </template>
 
 <template name="mainModalContent">
-  <div class="main-modal-wrapper animate">
+  <div class="main-modal-wrapper animate" style="background-color:#1abc9c;">
     <div>
         <p>The Default demo shows basic Snap.js functionality</p>
         <button id="close-modal{{Touch}}">modal</button> 
@@ -189,45 +189,27 @@
         <button id="close-modal{{Touch}}">modal</button> 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
         <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
+   
+    </div>
+  </div>
+</template>
+
+
+<template name="mainModalContent3">
+  <div class="main-modal-wrapper animate" style="background-color:#34495e;">
+    <div>
+        <p>The Default demo shows basic Snap.js functionality</p>
+        <button id="close-modal{{Touch}}">modal</button> 
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
+        <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
+   
     </div>
     <div>
-
-    <label class="toggle">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-    </label>
         <p>The Default demo shows basic Snap.js functionality</p>
+        <button id="close-modal{{Touch}}">modal</button> 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-    </div>
-          <input type="text" class="form-control">
-          <input type="text" class="form-control">
-          <input type="text" class="form-control">
-                <input type="text" class="form-control">
-          <input type="text" class="form-control">
-          <input type="text" class="form-control">
-      <div>
-
-      <label class="toggle">
-         <input type="checkbox">
-         <div class="track">
-           <div class="handle"></div>
-         </div>
-      </label>
-        <p>The Default demo shows basic Snap.js functionality</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-    </div>
-      <div>
-        <p>The Default demo shows basic Snap.js functionality</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-    </div>
-      <div>
-        <p>The Default demo shows basic Snap.js functionality</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-        <input type="text" class="form-control">
-          <input type="text" class="form-control">
-          <input type="text" class="form-control">
+        <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
+    
     </div>
   </div>
 </template>
