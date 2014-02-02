@@ -102,6 +102,18 @@ background-color: @nephritis;
 // width: 20%;
 
 }
+
+.main-modal-wrapper {
+    transform: translate3d(0, 0, 0);
+    transition: all .5s;
+
+    &.animate {
+      transform: translate3d(200%, 0, 0);
+      backface-visibility: hidden;
+      // transition: all .5s;
+    }
+}
+
  
 .main-snap-modal {
   //   position: absolute;

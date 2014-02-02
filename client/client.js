@@ -99,20 +99,34 @@ Template.hello2.checked = function () {
     'click #updateAlerts' :function () {
     Meteor.call('updateAlerts');
   },
-   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
-          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
-        }, 
+ 
         'touchmove #main-backdrop': function (e) {
                e.preventDefault();
                // alert("tap");
                // alert("move");
                 // e.stopPropagation();
-             },
-    'webkitTransitionEnd #mainModal': function (e) {
-            // alert("END")
-            Session.set("hideOverflow", true);
-         }
+             }
   });
+Modals = new Meteor.Collection(null)
 
+Template.mainModal.helpers({
+  modals: function () {
+    return Modals.find()
+  }
+})
 
-  
+Template.mainModal.events({
+  'webkitTransitionEnd #mainModal': function (e) {
+          // alert("END")
+          Session.set("hideOverflow", true);
+  },
+  'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
+         Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
+  },
+  'click #close-modalClick, tap #close-modalTouch' :function () {
+        // Session.set("hideOverflow", false)
+        $( "#mainModal" ).removeClass( "is-visible" );
+        // StatusBar.show();
+    },      
+})
+  //  Modals.insert({templateName: 'mainModalContent'})

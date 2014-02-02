@@ -61,11 +61,6 @@ Template.hello2.events({
         // Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
-      'click #close-modalClick, tap #close-modalTouch' :function () {
-            // Session.set("hideOverflow", false)
-            $( "#mainModal" ).removeClass( "is-visible" );
-            // StatusBar.show();
-        },
          'click #open-snap-modalClick, tap #open-snap-modalTouch ' :function () {
             $( "#snapMainModal" ).addClass( "is-visible" );
             Session.set("hideOverflow", true)

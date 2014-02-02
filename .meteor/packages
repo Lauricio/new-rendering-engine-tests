@@ -16,3 +16,6 @@ facts
 coffeescript
 accounts-password
 accounts-ui
+iron-router
+view-manager
+animation-helper
