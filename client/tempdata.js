@@ -2,17 +2,26 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    AppViews.insert({type: type, itemId: itemId})
-    Session.set('mainViewVisble', true)
+    AppViews.insert({type: type, itemId: itemId}, function (err, id) {
+      if (id)
+        Session.set('mainViewVisble', true)
+      else
+        console.log(err)
+    })
   },
   back: function (viewId) {
     var element = document.getElementById(viewId)
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
-        AppViews.remove({_id: viewId});
-        if (AppViews.find().count() === 0) {
-          Session.set('mainViewVisible', false)
-        }
+        AppViews.remove({_id: viewId}, function (err, res) {
+          if (res) {
+            if (AppViews.find().count() === 0) {
+              Session.set('mainViewVisible', false)
+            }
+          } else 
+            console.log(err)
+        })
+        
       }, false );
     element.className += ' animate';
   },
@@ -25,19 +34,11 @@ ViewsControl = {
 Template.mainModal.rendered = function () {
   document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
-        // console.log(event);
         if (event.target.id === 'mainModal') {
-          // console.log('event.target.id 2')
-          // console.log(event.target.id)
           AppViews.remove({})
-          // alert('transtion end')
         }
       }, true );
-  // console.log("%c Rendered:    mainModal    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
 };
-
- // Agendas.insert({_id: 'agenda1', title: 'agenda'})
- //  Speakers.insert({_id: 'speaker1', title: 'speaker'})
 
 Meteor.startup(function () {
  
