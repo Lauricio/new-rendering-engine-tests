@@ -1,3 +1,5 @@
+
+
 ViewsControl = {
   go: function (type, itemId) {
     AppViews.insert({type: type, itemId: itemId})
@@ -13,6 +15,16 @@ ViewsControl = {
       AppViews.remove({})
     }, false );
   }
+};
+Template.mainModal.rendered = function () {
+  
+      document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
+      function( event ) { 
+        console.log(event);
+        if (event.target.id === 'mainModal') 
+        alert('transtion end')
+      }, true );
+  console.log("%c Rendered:    mainModal    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
 };
 
  // Agendas.insert({_id: 'agenda1', title: 'agenda'})
