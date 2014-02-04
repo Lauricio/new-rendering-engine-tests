@@ -17,8 +17,10 @@ ViewsControl = {
             if (AppViews.find().count() === 0) {
               Session.set('mainViewVisible', false)
             }
-          } else 
-            console.log(err)
+          } else { 
+              Session.set('mainViewVisible', false)
+              console.log(err)
+          }
         })
         
       }, false );
