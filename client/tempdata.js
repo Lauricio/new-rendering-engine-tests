@@ -2,11 +2,10 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    AppViews.insert({type: type, itemId: itemId}, function (err, id) {
-      if (id)
-        Session.set('mainViewVisble', true)
-      else
-        console.log(err)
+    Session.set('mainViewVisible', true)
+    AppViews.insert({type: type, itemId: itemId}, function (err) {
+      if (err && AppViews.find().count() === 0)
+        Session.set('mainViewVisble', false)
     })
   },
   back: function (viewId) {
@@ -25,7 +24,7 @@ ViewsControl = {
       }, false );
     element.className += ' animate';
   },
-  reset: function (elementId) {
+  reset: function () {
     Session.set('mainViewVisible', false)
   }
 };
@@ -123,7 +122,6 @@ Template.hello2.events({
 
 Template.agendaItem.events({
   'click .js-openAgendaV': function () {
-    Session.set('mainViewVisible', true)
     ViewsControl.go('agendaView', this._id)
 
   }
