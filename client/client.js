@@ -113,7 +113,7 @@ Template.mainModal.helpers({
     return AppViews.find()
   },
   visible: function () {
-
+    return Session.equals('mainViewVisible', true) ? 'is-visible': '';
   }
 })
 
@@ -130,33 +130,20 @@ Template.agendaView.helpers({
 })
 
 Template.mainModal.events({
-  'webkitTransitionEnd #mainModal': function (e) {
-          // alert("END")
-          Session.set("hideOverflow", true);
-  },
+  // 'webkitTransitionEnd #mainModal': function (e) {
+  //         // alert("END")
+  //         Session.set("hideOverflow", true);
+  // },
   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
   },
   'click #close-modalClick, tap #close-modalTouch' :function () {
-        // Session.set("hideOverflow", false)
-        $( "#mainModal" ).removeClass( "is-visible" );
-        // StatusBar.show();
+    Session.set('mainViewVisible', false)
     },
   'click .js-closeViewClick, tap .js-closeViewTouch'  : function (e, t) {
-
-    
-    console.log(this)
-    var self = this;
-    var element = document.getElementById(self._id)
-    element.addEventListener( 'webkitTransitionEnd', 
-    function( event ) { 
-      console.dir(element)
-      ViewsControl.back(self._id)
-    }, false );
-    $(element).addClass('animate')
+      ViewsControl.back(this._id)
   },
   'click .js-closeMainModalClick, tap .js-closeMainModalTouch': function () {
-    $( "#mainModal" ).removeClass( "is-visible" );
+      Session.set('mainViewVisible', false)
   }
 })
-  //  Modals.insert({templateName: 'mainModalContent'})

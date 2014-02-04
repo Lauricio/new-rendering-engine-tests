@@ -3,28 +3,49 @@
 ViewsControl = {
   go: function (type, itemId) {
     AppViews.insert({type: type, itemId: itemId})
+    Session.set('mainViewVisble', true)
   },
   back: function (viewId) {
-    AppViews.remove({_id: viewId});
+    var element = document.getElementById(viewId)
+    element.addEventListener( 'webkitTransitionEnd', 
+      function( event ) { 
+        AppViews.remove({_id: viewId});
+        if (AppViews.find().count() === 0) {
+          Session.set('mainViewVisible', false)
+          // this.reset('mainModal')
+        }
+      }, false );
+    $(element).addClass('animate')
+   
   },
   reset: function (elementId) {
-    var element = document.getElementById(elementId)
-    element.addEventListener( 'webkitTransitionEnd', 
-    function( event ) { 
-      console.dir(element)
-      AppViews.remove({})
-    }, false );
+    // var element = document.getElementById(elementId)
+    // element.addEventListener( 'webkitTransitionEnd', 
+    // function( event ) { 
+    //   if (event.target.id === 'mainModal') {
+    //     console.log('event.target.id')
+    //     console.log(event.target.id)
+    //     AppViews.remove({})
+    //   }
+    // }, false );
+    // $( "#mainModal" ).removeClass( "is-visible" );
+    Session.set('mainViewVisible', false)
   }
 };
+
+
 Template.mainModal.rendered = function () {
-  
-      document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
+  document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
-        console.log(event);
-        if (event.target.id === 'mainModal') 
-        alert('transtion end')
+        // console.log(event);
+        if (event.target.id === 'mainModal') {
+          // console.log('event.target.id 2')
+          // console.log(event.target.id)
+          AppViews.remove({})
+          // alert('transtion end')
+        }
       }, true );
-  console.log("%c Rendered:    mainModal    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
+  // console.log("%c Rendered:    mainModal    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
 };
 
  // Agendas.insert({_id: 'agenda1', title: 'agenda'})
@@ -88,7 +109,8 @@ Template.hello2.events({
     };
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
-        $( "#mainModal" ).addClass( "is-visible" );
+        // $( "#mainModal" ).addClass( "is-visible" );
+        Session.set('mainViewVisible', true)
         ViewsControl.go('agendaView','agenda1')
         // Session.set("hideOverflow", true)
         // StatusBar.hide();
@@ -112,7 +134,8 @@ Template.hello2.events({
 
 Template.agendaItem.events({
   'click .js-openAgendaV': function () {
-    $( "#mainModal" ).addClass( "is-visible" );
+    // $( "#mainModal" ).addClass( "is-visible" );
+    Session.set('mainViewVisible', true)
     ViewsControl.go('agendaView', this._id)
 
   }
