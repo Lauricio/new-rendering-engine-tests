@@ -1,5 +1,5 @@
 
-
+Session.setDefault('appViewController', [])
 ViewsControl = {
   go: function (type, itemId) {
     console.timeEnd("Open Agenda2");
@@ -13,21 +13,26 @@ ViewsControl = {
   back: function (viewId) {
     var element = document.getElementById(viewId)
     element.className += ' animate';
-    if (AppViews.find().count() === 1) {
+    // if (AppViews.find().count() === 1) {
+    //     Session.set('mainViewVisible', false)
+    //   }
+    if (Session.get('appViewController').length === 1)
         Session.set('mainViewVisible', false)
-      }
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
-        AppViews.remove({_id: viewId}, function (err, res) {
-          if (res) {
-            if (AppViews.find().count() === 0) {
-              Session.set('mainViewVisible', false)
-            }
-          } else if (AppViews.find().count() === 0) { 
-              Session.set('mainViewVisible', false)
-              console.log(err)
-          }
-        })
+        // AppViews.remove({_id: viewId}, function (err, res) {
+        //   if (res) {
+        //     if (AppViews.find().count() === 0) {
+        //       Session.set('mainViewVisible', false)
+        //     }
+        //   } else if (AppViews.find().count() === 0) { 
+        //       Session.set('mainViewVisible', false)
+        //       console.log(err)
+        //   }
+        // })
+      var array = Session.get('appViewController')
+      array.pop()
+      Session.set('appViewController', array)
         
       }, false );
   },
@@ -144,7 +149,10 @@ Template.agendaItem.events({
     console.log('%c Apple   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
     Session.set('mainViewVisible', true);
     // $("#mainModal").addClass("is-visible");
-    ViewsControl.go('agendaView', this._id)
+    var array = Session.get('appViewController');
+    array.push({viewId: Random.id(), type: 'agendaView', itemId: this._id })
+    Session.set('appViewController', array)
+    // ViewsControl.go('agendaView', this._id)
 
 
   }

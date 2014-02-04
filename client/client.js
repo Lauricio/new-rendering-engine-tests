@@ -110,7 +110,8 @@ Template.hello2.checked = function () {
 
 Template.mainModal.helpers({
   views: function () {
-    return AppViews.find()
+    // return AppViews.find()
+    return Session.get('appViewController') || []
   },
   visible: function () {
     return Session.equals('mainViewVisible', true) ? 'is-visible': '';
@@ -141,7 +142,8 @@ Template.mainModal.events({
     Session.set('mainViewVisible', false)
     },
   'click .js-closeViewClick, tap .js-closeViewTouch'  : function (e, t) {
-      ViewsControl.back(this._id)
+    console.log(this)
+      ViewsControl.back(this.viewId)
   },
   'click .js-closeMainModalClick, tap .js-closeMainModalTouch': function () {
       Session.set('mainViewVisible', false)
