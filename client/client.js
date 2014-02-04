@@ -111,7 +111,7 @@ Modals = new Meteor.Collection(null)
 
 Template.mainModal.helpers({
   modals: function () {
-    return Modals.find()
+    return AppViewss.find()
   }
 })
 
@@ -135,7 +135,7 @@ Template.mainModal.events({
     element.addEventListener( 'webkitTransitionEnd', 
     function( event ) { 
       console.dir(element)
-      Modals.remove({'_id': self._id})
+      ViewsControl.back(self._id)
     }, false );
     $(element).addClass('animate')
   }
