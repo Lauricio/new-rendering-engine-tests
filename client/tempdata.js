@@ -12,23 +12,11 @@ ViewsControl = {
         AppViews.remove({_id: viewId});
         if (AppViews.find().count() === 0) {
           Session.set('mainViewVisible', false)
-          // this.reset('mainModal')
         }
       }, false );
-    $(element).addClass('animate')
-   
+    element.className += ' animate';
   },
   reset: function (elementId) {
-    // var element = document.getElementById(elementId)
-    // element.addEventListener( 'webkitTransitionEnd', 
-    // function( event ) { 
-    //   if (event.target.id === 'mainModal') {
-    //     console.log('event.target.id')
-    //     console.log(event.target.id)
-    //     AppViews.remove({})
-    //   }
-    // }, false );
-    // $( "#mainModal" ).removeClass( "is-visible" );
     Session.set('mainViewVisible', false)
   }
 };
@@ -134,7 +122,6 @@ Template.hello2.events({
 
 Template.agendaItem.events({
   'click .js-openAgendaV': function () {
-    // $( "#mainModal" ).addClass( "is-visible" );
     Session.set('mainViewVisible', true)
     ViewsControl.go('agendaView', this._id)
 
