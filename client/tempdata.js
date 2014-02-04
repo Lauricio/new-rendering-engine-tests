@@ -157,3 +157,8 @@ Template.agendaItem.events({
 
   }
 })
+
+Template.agendaItem.rendered = function () {
+  console.timeEnd("Open Agenda");
+  console.log("%c Rendered:    agendaItem    ",  "background: #2980b9; color: white; font-weight:bold; ");
+};
