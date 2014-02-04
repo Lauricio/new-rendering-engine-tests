@@ -109,8 +109,11 @@ Template.hello2.checked = function () {
 // 
 
 Template.mainModal.helpers({
-  modals: function () {
+  views: function () {
     return AppViews.find()
+  },
+  visible: function () {
+
   }
 })
 
@@ -126,7 +129,6 @@ Template.agendaView.helpers({
   }
 })
 
-
 Template.mainModal.events({
   'webkitTransitionEnd #mainModal': function (e) {
           // alert("END")
@@ -141,6 +143,8 @@ Template.mainModal.events({
         // StatusBar.show();
     },
   'click .js-closeViewClick, tap .js-closeViewTouch'  : function (e, t) {
+
+    
     console.log(this)
     var self = this;
     var element = document.getElementById(self._id)

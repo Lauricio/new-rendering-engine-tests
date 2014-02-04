@@ -4,6 +4,14 @@ ViewsControl = {
   },
   back: function (viewId) {
     AppViews.remove({_id: viewId});
+  },
+  reset: function (elementId) {
+    var element = document.getElementById(elementId)
+    element.addEventListener( 'webkitTransitionEnd', 
+    function( event ) { 
+      console.dir(element)
+      AppViews.remove({})
+    }, false );
   }
 };
 

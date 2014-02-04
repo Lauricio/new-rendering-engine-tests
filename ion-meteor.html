@@ -120,9 +120,9 @@
 </template>
 
 <template name="mainModal">
-  <div class="main-modal" id="mainModal">
+  <div class="main-modal {{visible}}" id="mainModal">
   <div class="XXXmain-modal-content scrollable" id="modal-scroll" XXXdata-scrollable="y">
-  {{#each modals}}
+  {{#each views}}
     <div  class="each-modal">
       {{> AnimateTemplate template=type}}
     </div>
