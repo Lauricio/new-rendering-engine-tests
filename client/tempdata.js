@@ -136,7 +136,7 @@ Template.hello2.events({
 
 Template.agendaView.helpers({
   agendas: function() {
-    return Agendas.find()
+    return Agendas.find({}, {limit: 4})
   }
 })
 
