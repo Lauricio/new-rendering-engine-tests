@@ -107,11 +107,11 @@ Template.hello2.checked = function () {
                 // e.stopPropagation();
              }
   });
-Modals = new Meteor.Collection(null)
+// 
 
 Template.mainModal.helpers({
   modals: function () {
-    return AppViewss.find()
+    return AppViews.find()
   }
 })
 
