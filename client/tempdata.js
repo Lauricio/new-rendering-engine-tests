@@ -2,8 +2,10 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    Session.set('mainViewVisible', true)
+    console.timeEnd("Open Agenda2");
+    // Session.set('mainViewVisible', true);
     AppViews.insert({type: type, itemId: itemId}, function (err) {
+      console.timeEnd("Open Agenda")
       if (err && AppViews.find().count() === 0)
         Session.set('mainViewVisble', false)
     })
@@ -135,7 +137,15 @@ Template.agendaView.helpers({
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
+    console.time("Open Agenda");
+    console.time("Open Agenda2");
+    console.time("Open Agenda3");
+    console.timeEnd("Open Agenda3");
+    console.log('%c Apple   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
+    Session.set('mainViewVisible', true);
+    // $("#mainModal").addClass("is-visible");
     ViewsControl.go('agendaView', this._id)
+
 
   }
 })

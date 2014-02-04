@@ -5,28 +5,28 @@ Template.hello2.rendered = function () {
   console.log("%c Rendered:    hello2    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
 
 
-  var contentEl = document.getElementById('content');
-  var content = new ionic.views.SideMenuContent({
-    el: contentEl
-  });
+  // var contentEl = document.getElementById('content');
+  // var content = new ionic.views.SideMenuContent({
+  //   el: contentEl
+  // });
 
 
-  var leftMenuEl = document.getElementById('menu-left');
-  var leftMenu = new ionic.views.SideMenu({
-    el: leftMenuEl,
-    width: 270
-  });
+  // var leftMenuEl = document.getElementById('menu-left');
+  // var leftMenu = new ionic.views.SideMenu({
+  //   el: leftMenuEl,
+  //   width: 270
+  // });
 
-  var rightMenuEl = document.getElementById('menu-right');
-  var rightMenu = new ionic.views.SideMenu({
-    el: rightMenuEl,
-    width: 270
-  });
+  // var rightMenuEl = document.getElementById('menu-right');
+  // var rightMenu = new ionic.views.SideMenu({
+  //   el: rightMenuEl,
+  //   width: 270
+  // });
 
-  var menuListEl = document.getElementById('scrolling');
-  var menuList = new ionic.views.Scroll({
-    el: menuListEl
-  });
+  // var menuListEl = document.getElementById('scrolling');
+  // var menuList = new ionic.views.Scroll({
+  //   el: menuListEl
+  // });
 
   // var modalEl = document.getElementById('modal-scroll');
   // var modalScroll = new ionic.views.Scroll({
@@ -35,12 +35,12 @@ Template.hello2.rendered = function () {
 
 
 
-  sm = new ionic.controllers.SideMenuController({
-    content: content,
-    left: leftMenu,
-    right: rightMenu,
-    dragThresholdX: 50,
-  });
+  // sm = new ionic.controllers.SideMenuController({
+  //   content: content,
+  //   left: leftMenu,
+  //   right: rightMenu,
+  //   dragThresholdX: 50,
+  // });
 
   $('body').addClass("platform-ios7");
 
