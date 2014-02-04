@@ -124,6 +124,12 @@ Template.hello2.events({
 
 });
 
+Template.agendaView.helpers({
+  agendas: function() {
+    return Agendas.find()
+  }
+})
+
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     ViewsControl.go('agendaView', this._id)

@@ -162,7 +162,11 @@
     </div>
   {{/with}}
 
-  {{> ionscroller}}
+<div class="list" id="main-list">
+  {{#each agendas}}
+    {{> agendaItem}}
+  {{/each}}
+    </div>
     </div>
 </template>
 
