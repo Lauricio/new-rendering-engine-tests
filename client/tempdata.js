@@ -11,6 +11,9 @@ ViewsControl = {
   back: function (viewId) {
     var element = document.getElementById(viewId)
     element.className += ' animate';
+    if (AppViews.find().count() === 1) {
+        Session.set('mainViewVisible', false)
+      }
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
         AppViews.remove({_id: viewId}, function (err, res) {
