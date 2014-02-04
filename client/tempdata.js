@@ -17,7 +17,7 @@ ViewsControl = {
             if (AppViews.find().count() === 0) {
               Session.set('mainViewVisible', false)
             }
-          } else { 
+          } else if (ppViews.find().count() === 0) { 
               Session.set('mainViewVisible', false)
               console.log(err)
           }
