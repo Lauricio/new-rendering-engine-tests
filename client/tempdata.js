@@ -7,9 +7,11 @@ ViewsControl = {
   }
 };
 
-
+ // Agendas.insert({_id: 'agenda1', title: 'agenda'})
+ //  Speakers.insert({_id: 'speaker1', title: 'speaker'})
 
 Meteor.startup(function () {
+ 
 
     Session.set("isTouch", Modernizr.touch);
 });
@@ -33,7 +35,7 @@ function DataOnTime () {
 
 Template.ionscroller.helpers({
   agenda: function () {
-    return Agenda.find({}, {sort: {createdAt: -1}});
+    return Agendas.find({}, {sort: {createdAt: -1}});
   }
 
 
@@ -41,7 +43,7 @@ Template.ionscroller.helpers({
 
 Template.hello2.helpers({
   itemCount: function() {
-    return Agenda.find().count();
+    return Agendas.find().count();
   }
 
 
@@ -62,12 +64,12 @@ Template.hello2.events({
    },
    'click #insert-20-agendaClick, tap #insert-20-agendaTouch': function () {
     for (var i = 20; i >= 0; i--) {
-      Agenda.insert({createdAt: new Date()})
+      Agendas.insert({createdAt: new Date()})
     };
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
         $( "#mainModal" ).addClass( "is-visible" );
-        ViewsControl.go('mainModalContent2','id123')
+        ViewsControl.go('agendaView','agenda1')
         // Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
@@ -87,3 +89,11 @@ Template.hello2.events({
         }    
 
 });
+
+Template.agendaItem.events({
+  'click .js-openAgendaV': function () {
+    $( "#mainModal" ).addClass( "is-visible" );
+    ViewsControl.go('agendaView', this._id)
+
+  }
+})

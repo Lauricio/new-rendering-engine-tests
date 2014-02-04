@@ -82,7 +82,6 @@ Template.hello2.checked = function () {
 };
 
 
-
   Template.hello2.events({
     'click #plus' :function () {
       Session.set("checker", Random.id())
@@ -114,6 +113,19 @@ Template.mainModal.helpers({
     return AppViews.find()
   }
 })
+
+Template.speakerView.helpers({
+  speaker: function () {
+    return Speaker.findOne({_id: this.itemId});
+  }
+});
+
+Template.agendaView.helpers({
+  agenda: function () {
+    return Agendas.findOne({_id: this.itemId});
+  }
+})
+
 
 Template.mainModal.events({
   'webkitTransitionEnd #mainModal': function (e) {
