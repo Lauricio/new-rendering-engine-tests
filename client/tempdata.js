@@ -67,7 +67,7 @@ Template.hello2.events({
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
         $( "#mainModal" ).addClass( "is-visible" );
-        Modals.insert({templateName: 'mainModalContent2', Zindex:50})
+        ViewsControl.go('mainModalContent2','id123')
         // Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
