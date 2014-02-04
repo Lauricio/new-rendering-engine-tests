@@ -10,6 +10,7 @@ ViewsControl = {
   },
   back: function (viewId) {
     var element = document.getElementById(viewId)
+    element.className += ' animate';
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
         AppViews.remove({_id: viewId}, function (err, res) {
@@ -17,14 +18,13 @@ ViewsControl = {
             if (AppViews.find().count() === 0) {
               Session.set('mainViewVisible', false)
             }
-          } else if (ppViews.find().count() === 0) { 
+          } else if (AppViews.find().count() === 0) { 
               Session.set('mainViewVisible', false)
               console.log(err)
           }
         })
         
       }, false );
-    element.className += ' animate';
   },
   reset: function () {
     Session.set('mainViewVisible', false)
@@ -33,6 +33,8 @@ ViewsControl = {
 
 
 Template.mainModal.rendered = function () {
+  // if (AppViews.find().count() === 0)
+  //   Session.set('mainViewVisible', false)
   document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
         if (event.target.id === 'mainModal') {
