@@ -46,10 +46,6 @@
   left: 0;
 }
 
-#content {
-  z-index: 10;
-}
-
 
 //
 //      Scroll modal
@@ -61,22 +57,29 @@
   right: 0;
   bottom: 0;
   left: 0;
+  height: 700px;
   // position: relative;
   // height: auto;
   // width: auto;
-  z-index: -10;
+  // z-index: -10;
   // display: none;
   visibility: hidden;
+
+  .view-back {
+    padding-top: 40px;
+    padding-left: 30px;
+  }
 
 
     transform: translate3d(0, 200%, 0);
     backface-visibility: hidden;
     // transform: scale(0.7);
     // opacity: 0;
+    
     transition: all .5s;
 
   &.is-visible {
-    z-index: 100;
+    z-index: 1000;
     visibility: visible;
     transform: translate3d(0, 0, 0);
       // transform: scale(1);
@@ -90,6 +93,15 @@
 
   .scrollable {
     // display: none;
+  }
+
+  .view-list {
+     -webkit-backface-visibility: hidden;
+    transition: none !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: 400px;
   }
 
 }
@@ -197,6 +209,11 @@ background-color: @nephritis;
     font-size: 2em;
     line-height: 1.3em;
     border: 1px solid white;
+
+    .view-list & {
+      background-color: @peter-river;
+
+    }
   }
 
   .title {

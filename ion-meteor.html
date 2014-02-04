@@ -34,7 +34,7 @@
 </template>
 
 <template name="hello2">
-
+  {{> mainModal}}
   {{> snapModal}}
 
   <!-- Center content -->
@@ -114,26 +114,31 @@
     </header>
   </div>
 
- {{> mainModal}}
+
 
 
 </template>
 
 <template name="mainModal">
   <div class="main-modal {{visible}}" id="mainModal">
-  <div class="XXXmain-modal-content scrollable" id="modal-scroll" XXXdata-scrollable="y">
+  <!-- <div class="XXXmain-modal-content XXXscrollable" id="modal-scroll" XXXdata-scrollable="y"> -->
+  <h1>plevele</h1>
+  <h1>plevele</h1>
+  <h1>plevele</h1>
   {{#each views}}
     <div  class="each-modal">
       {{> AnimateTemplate template=type}}
     </div>
   {{/each}}
-</div>
+<!-- </div> -->
 </div>
 </template>
 
 <template name="speakerView">
   <div class="main-modal-wrapper animate" style="background-color:#1abc9c;" id={{_id}}>
-        <button class="js-closeView{{Touch}}">Back</button> 
+    <div class="view-back">
+        <button class="js-closeView{{Touch}} view-back">Back</button> 
+    </div>
   {{#with speaker}}
 
    <div>
@@ -149,24 +154,26 @@
 
 <template name="agendaView">
     <div class="main-modal-wrapper animate" style="background-color:#1abc9c;" id={{_id}}>
-        <button class="js-closeView{{Touch}}">Back</button> 
-    <h1>works</h1>
-  {{#with agenda}}
-      <h1>{{_id}}</h1>
-     <div>
-        <p>The Default demo shows basic Snap.js functionality</p>
-        <button class="js-closeMainModal{{Touch}}">modal</button> 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-        <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
-   
-    </div>
-  {{/with}}
+    <div class="view-back">
+      <button class="js-closeView{{Touch}}">Back</button> 
+      </div>
+      <h1>works</h1>
+      {{#with agenda}}
+         <h1>{{_id}}</h1>
+         <div>
+            <p>The Default demo shows basic Snap.js functionality</p>
+            <button class="js-closeMainModal{{Touch}}">modal</button> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
+            <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
+       
+        </div>
+      {{/with}}
 
-<div class="list" id="main-list">
-  {{#each agendas}}
-    {{> agendaItem}}
-  {{/each}}
-    </div>
+      <div class="view-list">
+          {{#each agendas}}
+            {{> agendaItem}}
+          {{/each}}
+      </div>
     </div>
 </template>
 

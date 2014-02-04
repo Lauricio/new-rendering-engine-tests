@@ -33,8 +33,8 @@ ViewsControl = {
 
 
 Template.mainModal.rendered = function () {
-  // if (AppViews.find().count() === 0)
-  //   Session.set('mainViewVisible', false)
+  if (AppViews.find().count() === 0)
+    Session.set('mainViewVisible', false)
   document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
         if (event.target.id === 'mainModal') {
