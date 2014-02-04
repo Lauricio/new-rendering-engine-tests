@@ -140,7 +140,7 @@ Template.mainModal.events({
         $( "#mainModal" ).removeClass( "is-visible" );
         // StatusBar.show();
     },
-  'click #Trinti'  : function (e, t) {
+  'click .js-closeViewClick, tap .js-closeViewTouch'  : function (e, t) {
     console.log(this)
     var self = this;
     var element = document.getElementById(self._id)
@@ -150,6 +150,9 @@ Template.mainModal.events({
       ViewsControl.back(self._id)
     }, false );
     $(element).addClass('animate')
+  },
+  'click .js-closeMainModalClick, tap .js-closeMainModalTouch': function () {
+    $( "#mainModal" ).removeClass( "is-visible" );
   }
 })
   //  Modals.insert({templateName: 'mainModalContent'})
