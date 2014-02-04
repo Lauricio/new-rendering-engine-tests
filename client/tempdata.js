@@ -7,6 +7,8 @@ ViewsControl = {
   }
 };
 
+
+
 Meteor.startup(function () {
 
     Session.set("isTouch", Modernizr.touch);
