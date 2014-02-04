@@ -1,4 +1,11 @@
-
+ViewsControl = {
+  go: function (type, itemId) {
+    AppViews.insert({type: type, itemId: itemId})
+  },
+  back: function (viewId) {
+    AppViews.remove({_id: viewId});
+  }
+};
 
 Meteor.startup(function () {
 
