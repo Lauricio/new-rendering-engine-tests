@@ -127,6 +127,10 @@ Template.hello2.events({
 
 });
 
+Template.agendaView.rendered = function () {
+  
+};
+
 Template.agendaView.helpers({
   agendas: function() {
     return Agendas.find()
@@ -135,7 +139,10 @@ Template.agendaView.helpers({
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
-    ViewsControl.go('agendaView', this._id)
+    document.getElementById('spinner').className += 'is-visible';
+    Meteor.setTimeout(function () {
+      ViewsControl.go('agendaView', this._id)
+    }, 1)
 
   }
 })
