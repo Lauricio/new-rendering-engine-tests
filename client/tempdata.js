@@ -2,8 +2,9 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    Session.set('mainViewVisible', true)
+    // Session.set('mainViewVisible', true)
     AppViews.insert({type: type, itemId: itemId}, function (err) {
+      Session.set('mainViewReady', true)
       if (err && AppViews.find().count() === 0)
         Session.set('mainViewVisble', false)
     })
@@ -12,7 +13,8 @@ ViewsControl = {
     var element = document.getElementById(viewId)
     element.className += ' animate';
     if (AppViews.find().count() === 1) {
-        Session.set('mainViewVisible', false)
+        // Session.set('mainViewVisible', false)
+        document.getElementById('mainModal').classList.remove('is-visible');
       }
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
@@ -147,10 +149,13 @@ Template.agendaItem.events({
   // },
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').className += ' is-visible';
+    Session.set('mainViewReady', false)
     console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-      Meteor.setTimeout(function(){
+  document.getElementById('spinner').classList.add('is-visible');
+  document.getElementById('mainModal').classList.add('is-visible');
+      // Meteor.setTimeout(function(){
         ViewsControl.go('agendaView', this._id)
-      }, 1)
+      // }, 1)
 
   }
 })

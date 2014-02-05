@@ -129,16 +129,18 @@
 
 
 <template name="mainModal">
-  <div class="main-modal {{visible}}" id="mainModal">
+  <div class="main-modal" id="mainModal">
   <!-- <div class="XXXmain-modal-content XXXscrollable" id="modal-scroll" XXXdata-scrollable="y"> -->
   <h1>plevele</h1>
   <h1>plevele</h1>
   <h1>plevele</h1>
+  {{#if showViews}}
   {{#each views}}
     <div  class="each-modal">
       {{> AnimateTemplate template=type}}
     </div>
   {{/each}}
+  {{/if}}
 <!-- </div> -->
 </div>
 </template>
