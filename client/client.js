@@ -134,6 +134,7 @@ Template.mainModal.events({
   //         // alert("END")
   //         Session.set("hideOverflow", true);
   // },
+
   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
   },
