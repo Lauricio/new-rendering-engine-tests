@@ -139,10 +139,21 @@ Template.agendaView.helpers({
   }
 })
 
+function SpinnerClass() {
+  document.getElementById('spinner').classList.add('is-visible');
+  return true;
+}
+
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').className += ' is-visible';
-  document.getElementById('spinner').classList.add('is-visible');
+  // document.getElementById('spinner').classList.add('is-visible');
+  
+  if (SpinnerClass())
+
+      ViewsControl.go('agendaView', this._id)
+
+
   /*  Meteor.setTimeout(function () {
       ViewsControl.go('agendaView', this._id)
     }, 1)*/
