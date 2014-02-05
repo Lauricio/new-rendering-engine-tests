@@ -130,7 +130,7 @@ Template.hello2.events({
 Template.agendaView.rendered = function () {
   // document.getElementById("spinner").className =
   //     document.getElementById("spinner").className.replace(/\is-visible\b/,'');
-  // document.getElementById('spinner').classList.remove('is-visible')
+  document.getElementById('spinner').classList.remove('is-visible')
 };
 
 Template.agendaView.helpers({
@@ -139,17 +139,16 @@ Template.agendaView.helpers({
   }
 })
 
-function SpinnerClass() {
-  document.getElementById('spinner').classList.add('is-visible');
-  
-}
+UI.body.events({
+  'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
+    document.getElementById('spinner').classList.add('is-visible');
+  }
+})
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').className += ' is-visible';
   // document.getElementById('spinner').classList.add('is-visible');
-  
-  SpinnerClass()
 
       ViewsControl.go('agendaView', this._id)
 
