@@ -151,6 +151,7 @@ Template.agendaItem.events({
     // document.getElementById('spinner').className += ' is-visible';
     console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
       Session.set('spinnerOn', true)
+      Deps.flush();
       Meteor.setTimeout(function () {
         ViewsControl.go('agendaView', this._id)
       }, 1)
