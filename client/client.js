@@ -114,9 +114,6 @@ Template.mainModal.helpers({
   },
   visible: function () {
     return Session.equals('mainViewVisible', true) ? 'is-visible': '';
-  },
-  showViews: function () {
-    return Session.get('mainViewReady') ? true : false;
   }
 })
 
@@ -129,9 +126,6 @@ Template.speakerView.helpers({
 Template.agendaView.helpers({
   agenda: function () {
     return Agendas.findOne({_id: this.itemId});
-  },
-  visible: function () {
-    return Session.get('mainViewVisible') ? 'is-visible': '';
   }
 })
 
