@@ -141,20 +141,16 @@ Template.agendaView.helpers({
 
 
 Template.agendaItem.events({
-  'click .js-spinnerOnClick, tap .js-spinnerOnTouch': function () {
-    console.log('%c spinner   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-  document.getElementById('spinner').classList.add('is-visible');
-  },
+  // 'click .js-spinnerOnClick, tap .js-spinnerOnTouch': function () {
+  //   console.log('%c spinner   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
+  // document.getElementById('spinner').classList.add('is-visible');
+  // },
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').className += ' is-visible';
     console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-
-      ViewsControl.go('agendaView', this._id)
-
-
-  /*  Meteor.setTimeout(function () {
-      ViewsControl.go('agendaView', this._id)
-    }, 1)*/
+      Meteor.setTimeout(function(){
+        ViewsControl.go('agendaView', this._id)
+      }, 1)
 
   }
 })
