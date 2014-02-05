@@ -1,11 +1,9 @@
 
-Session.setDefault('appViewController', [])
+
 ViewsControl = {
   go: function (type, itemId) {
-    console.timeEnd("Open Agenda2");
-    // Session.set('mainViewVisible', true);
+    Session.set('mainViewVisible', true)
     AppViews.insert({type: type, itemId: itemId}, function (err) {
-      console.timeEnd("Open Agenda")
       if (err && AppViews.find().count() === 0)
         Session.set('mainViewVisble', false)
     })
@@ -13,26 +11,21 @@ ViewsControl = {
   back: function (viewId) {
     var element = document.getElementById(viewId)
     element.className += ' animate';
-    // if (AppViews.find().count() === 1) {
-    //     Session.set('mainViewVisible', false)
-    //   }
-    if (Session.get('appViewController').length === 1)
+    if (AppViews.find().count() === 1) {
         Session.set('mainViewVisible', false)
+      }
     element.addEventListener( 'webkitTransitionEnd', 
       function( event ) { 
-        // AppViews.remove({_id: viewId}, function (err, res) {
-        //   if (res) {
-        //     if (AppViews.find().count() === 0) {
-        //       Session.set('mainViewVisible', false)
-        //     }
-        //   } else if (AppViews.find().count() === 0) { 
-        //       Session.set('mainViewVisible', false)
-        //       console.log(err)
-        //   }
-        // })
-      var array = Session.get('appViewController')
-      array.pop()
-      Session.set('appViewController', array)
+        AppViews.remove({_id: viewId}, function (err, res) {
+          if (res) {
+            if (AppViews.find().count() === 0) {
+              Session.set('mainViewVisible', false)
+            }
+          } else if (AppViews.find().count() === 0) { 
+              Session.set('mainViewVisible', false)
+              console.log(err)
+          }
+        })
         
       }, false );
   },
@@ -136,29 +129,13 @@ Template.hello2.events({
 
 Template.agendaView.helpers({
   agendas: function() {
-    return Agendas.find({}, {limit: 4})
+    return Agendas.find()
   }
 })
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
-    console.time("Open Agenda");
-    console.time("Open Agenda2");
-    console.time("Open Agenda3");
-    console.timeEnd("Open Agenda3");
-    console.log('%c Apple   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-    Session.set('mainViewVisible', true);
-    // $("#mainModal").addClass("is-visible");
-    var array = Session.get('appViewController');
-    array.push({viewId: Random.id(), type: 'agendaView', itemId: this._id })
-    Session.set('appViewController', array)
-    // ViewsControl.go('agendaView', this._id)
-
+    ViewsControl.go('agendaView', this._id)
 
   }
 })
-
-Template.agendaItem.rendered = function () {
-  console.timeEnd("Open Agenda");
-  console.log("%c Rendered:    agendaItem    ",  "background: #2980b9; color: white; font-weight:bold; ");
-};
