@@ -141,7 +141,8 @@ Template.agendaView.helpers({
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
-    document.getElementById('spinner').className += 'is-visible';
+    // document.getElementById('spinner').className += ' is-visible';
+  document.getElementById('spinner').classList.add('is-visble')
     Meteor.setTimeout(function () {
       ViewsControl.go('agendaView', this._id)
     }, 1)
