@@ -152,10 +152,12 @@ Template.agendaItem.events({
     Session.set('mainViewReady', false)
     console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
   document.getElementById('spinner').classList.add('is-visible');
-  document.getElementById('mainModal').classList.add('is-visible');
-      // Meteor.setTimeout(function(){
+
+
+      Meteor.setTimeout(function(){
+        document.getElementById('mainModal').classList.add('is-visible');
         ViewsControl.go('agendaView', this._id)
-      // }, 1)
+      }, 1)
 
   }
 })
