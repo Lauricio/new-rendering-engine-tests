@@ -130,8 +130,14 @@ Template.hello2.events({
 Template.agendaView.rendered = function () {
   // document.getElementById("spinner").className =
   //     document.getElementById("spinner").className.replace(/\is-visible\b/,'');
-  document.getElementById('spinner').classList.remove('is-visible')
+  Session.set('spinnerOn', false)
 };
+
+Template.spinner.helpers({
+  visible: function () {
+    return Session.get('spinnerOn', true) ? 'is-visible': '';
+  }
+})
 
 Template.agendaView.helpers({
   agendas: function() {
@@ -141,15 +147,13 @@ Template.agendaView.helpers({
 
 
 Template.agendaItem.events({
-  'click .js-spinnerOnClick, tap .js-spinnerOnTouch': function () {
-    console.log('%c spinner   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-  document.getElementById('spinner').classList.add('is-visible');
-  },
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').className += ' is-visible';
     console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-
-      ViewsControl.go('agendaView', this._id)
+      Session.set('spinnerOn', true)
+      Meteor.setTimeout(function () {
+        ViewsControl.go('agendaView', this._id)
+      }, 1)
 
 
   /*  Meteor.setTimeout(function () {
