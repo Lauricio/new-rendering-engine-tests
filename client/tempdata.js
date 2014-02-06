@@ -2,7 +2,7 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    document.getElementById('spinner').classList.add('is-visible');
+    // document.getElementById('spinner').classList.add('is-visible');
     // Session.set('spinnerOn', true)
     Meteor.setTimeout(function () {
     Session.set('mainViewVisible', true)
@@ -166,6 +166,10 @@ Template.agendaItem.events({
       // Meteor.setTimeout(function () {
       //   ViewsControl.go('agendaView', this._id)
       // }, 1)
+      Deps.nonreactive(function () {
+    document.getElementById('spinner').classList.add('is-visible');
+        
+      })
       ViewsControl.go('agendaView', this._id)
       
   }
