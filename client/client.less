@@ -50,6 +50,10 @@
 //
 //      Scroll modal
 //ss
+.main-view {
+  z-index: 1000;
+  position: absolute;
+}
 
 .main-modal {
     position: fixed;
@@ -95,6 +99,10 @@
     // display: none;
   }
 
+
+
+}
+
   .view-list {
      -webkit-backface-visibility: hidden;
     transition: none !important;
@@ -103,8 +111,6 @@
     -webkit-overflow-scrolling: touch;
     height: 400px;
   }
-
-}
 
 .main-modal-content {
   position: absolute;
@@ -119,12 +125,13 @@ background-color: @nephritis;
 
 }
 
-.main-modal-wrapper {
-  // position: absolute;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
+.agenda-view-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
   // height: 500px;
     transform: translate3d(0, 0, 0);
     transition: all .5s;
@@ -136,12 +143,17 @@ background-color: @nephritis;
     }
 }
 
+.view-header {
+  height: 64px !important;
+}
+
 .each-modal {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    z-index: 1000;
 }
  
 .main-snap-modal {
