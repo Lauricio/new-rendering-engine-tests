@@ -2,7 +2,7 @@
 
 ViewsControl = {
   go: function (type, itemId) {
-    // document.getElementById('spinner').classList.add('is-visible');
+    document.getElementById('spinner').classList.add('is-visible');
     // Session.set('spinnerOn', true)
     Meteor.setTimeout(function () {
     Session.set('mainViewVisible', true)
@@ -141,8 +141,9 @@ Template.hello2.events({
 });
 
 Template.agendaView.rendered = function () {
-  // document.getElementById("spinner").classList.remove('is-visible')
-  Session.set('spinnerOn', false)
+  console.timeEnd("rendering");
+  document.getElementById("spinner").classList.remove('is-visible')
+  // Session.set('spinnerOn', false)
 };
 
 Template.spinner.helpers({
@@ -161,8 +162,9 @@ Template.agendaView.helpers({
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
+    console.time("rendering");
     // document.getElementById('spinner').classList.add('is-visible');
-      Session.set('spinnerOn', true)
+      // Session.set('spinnerOn', true)
       // Meteor.setTimeout(function () {
       //   ViewsControl.go('agendaView', this._id)
       // }, 1)
@@ -170,10 +172,11 @@ Template.agendaItem.events({
     // document.getElementById('spinner').classList.add('is-visible');
 
       // })
-      Deps.afterFlush(function () {
-
+      // Deps.afterFlush(function () {
+      //   ViewsControl.go('agendaView', this._id)
+      // })
       ViewsControl.go('agendaView', this._id)
-      })
-      
-  }
+
+ }
 })
+
