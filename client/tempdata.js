@@ -141,7 +141,7 @@ Template.hello2.events({
 });
 
 Template.agendaView.rendered = function () {
-  console.timeEnd("rendering");
+  console.timeEnd("View Rendering");
   document.getElementById("spinner").classList.remove('is-visible')
   // Session.set('spinnerOn', false)
 };
@@ -162,7 +162,7 @@ Template.agendaView.helpers({
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
-    console.time("rendering");
+    console.time("View Rendering");
     // document.getElementById('spinner').classList.add('is-visible');
       // Session.set('spinnerOn', true)
       // Meteor.setTimeout(function () {
