@@ -142,7 +142,7 @@ Template.hello2.events({
 
 Template.agendaView.rendered = function () {
   console.timeEnd("View Rendering");
-  document.getElementById("spinner").classList.remove('is-visible');
+  document.getElementById("spinner").classList.remove('is-visible')
   // Session.set('spinnerOn', false)
 };
 
