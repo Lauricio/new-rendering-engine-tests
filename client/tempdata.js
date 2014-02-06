@@ -39,6 +39,13 @@ ViewsControl = {
 
 
 Template.mainModal.rendered = function () {
+  Deps.autorun(function () {
+    
+  if (Session.equals('spinnerOn', true))
+    ViewsControl.go('agendaView', this._id)
+  })
+
+
   if (AppViews.find().count() === 0)
     Session.set('mainViewVisible', false)
   document.getElementById('mainModal').addEventListener( 'webkitTransitionEnd', 
@@ -132,8 +139,8 @@ Template.hello2.events({
 });
 
 Template.agendaView.rendered = function () {
-  document.getElementById("spinner").classList.remove('is-visible')
-  // Session.set('spinnerOn', false)
+  // document.getElementById("spinner").classList.remove('is-visible')
+  Session.set('spinnerOn', false)
 };
 
 Template.spinner.helpers({
@@ -153,11 +160,11 @@ Template.agendaView.helpers({
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
     // document.getElementById('spinner').classList.add('is-visible');
-      // Session.set('spinnerOn', true)
+      Session.set('spinnerOn', true)
       // Meteor.setTimeout(function () {
       //   ViewsControl.go('agendaView', this._id)
       // }, 1)
-      ViewsControl.go('agendaView', this._id)
+      // ViewsControl.go('agendaView', this._id)
 
   }
 })
