@@ -75,7 +75,7 @@ Meteor.users.allow({update: function () { return true; }});
     Alerts.remove({'_id' : createdBy});
   },
   deleteAgenda: function () {
-    Agendass.remove({})
+    Agendas.remove({})
   }
 })
 

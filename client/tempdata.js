@@ -2,11 +2,14 @@
 
 ViewsControl = {
   go: function (type, itemId) {
+    document.getElementById('spinner').classList.add('is-visible');
+    Meteor.setTimeout(function () {
     Session.set('mainViewVisible', true)
     AppViews.insert({type: type, itemId: itemId}, function (err) {
       if (err && AppViews.find().count() === 0)
         Session.set('mainViewVisble', false)
     })
+    }, 1)
   },
   back: function (viewId) {
     var element = document.getElementById(viewId)
@@ -42,6 +45,7 @@ Template.mainModal.rendered = function () {
       function( event ) { 
         if (event.target.id === 'mainModal') {
           AppViews.remove({})
+          document.getElementById("spinner").classList.remove('is-visible')
         }
       }, true );
 };
@@ -62,7 +66,7 @@ Handlebars.registerHelper('Touch',function(input){
 function DataOnTime () {
   Session.set('dataOn', true)
   var interval = Meteor.setInterval(function () {
-    Agenda.insert({createdAt: new Date()})
+    Agendas.insert({createdAt: new Date()})
     if (Session.equals("dataOn", false)) {
         Meteor.clearInterval(interval)
     }
@@ -128,9 +132,8 @@ Template.hello2.events({
 });
 
 Template.agendaView.rendered = function () {
-  // document.getElementById("spinner").className =
-  //     document.getElementById("spinner").className.replace(/\is-visible\b/,'');
-  Session.set('spinnerOn', false)
+  document.getElementById("spinner").classList.remove('is-visible')
+  // Session.set('spinnerOn', false)
 };
 
 Template.spinner.helpers({
@@ -141,25 +144,20 @@ Template.spinner.helpers({
 
 Template.agendaView.helpers({
   agendas: function() {
-    return Agendas.find()
+    // return Agendas.find({}, {limit: 15})
+    return Agendas.find({})
   }
 })
 
 
 Template.agendaItem.events({
   'click .js-openAgendaVClick, tap .js-openAgendaVTouch': function () {
-    // document.getElementById('spinner').className += ' is-visible';
-    console.log('%c normal   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');
-      Session.set('spinnerOn', true)
-      Deps.flush();
-      Meteor.setTimeout(function () {
-        ViewsControl.go('agendaView', this._id)
-      }, 1)
-
-
-  /*  Meteor.setTimeout(function () {
+    // document.getElementById('spinner').classList.add('is-visible');
+      // Session.set('spinnerOn', true)
+      // Meteor.setTimeout(function () {
+      //   ViewsControl.go('agendaView', this._id)
+      // }, 1)
       ViewsControl.go('agendaView', this._id)
-    }, 1)*/
 
   }
 })
