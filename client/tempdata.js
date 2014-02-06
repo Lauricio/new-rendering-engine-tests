@@ -40,7 +40,6 @@ ViewsControl = {
 
 Template.mainModal.rendered = function () {
   Deps.autorun(function () {
-    
   if (Session.equals('spinnerOn', true))
     ViewsControl.go('agendaView', this._id)
   })
