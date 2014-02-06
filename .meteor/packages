@@ -3,10 +3,8 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-standard-app-packages
 insecure
 preserve-inputs
-less-ap-dev
 random
 jquery
 moment
@@ -14,8 +12,10 @@ migration
 lodash
 facts
 coffeescript
-accounts-password
-accounts-ui
-iron-router
+standard-app-packages
 view-manager
 animation-helper
+iron-router
+accounts-ui
+accounts-password
+less-ap-dev
