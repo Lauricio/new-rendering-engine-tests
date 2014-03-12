@@ -48,21 +48,20 @@ Template.hello2.rendered = function () {
 
 };
 
-
 Template.ionscroller.rendered = function () {
   console.log("%c Rendered:    iscroll    ",  "background: #2980b9; color: white; font-weight:bold; ", this.data);
   /*
    Ionic Scroll + List
    */
-  // var contentScrollDOM = document.getElementById('main-scroll');
-  // var contentScroll = new ionic.views.Scroll({
-  //   el: contentScrollDOM
-  // });
+  var contentScrollDOM = document.getElementById('main-scroll');
+  var contentScroll = new ionic.views.Scroll({
+    el: contentScrollDOM
+  });
 
-  // var contentListDOM = document.getElementById('main-list');
-  // var contentList = new ionic.views.ListView({
-  //   el: contentListDOM
-  // });
+  var contentListDOM = document.getElementById('main-list');
+  var contentList = new ionic.views.ListView({
+    el: contentListDOM
+  });
 
   /*
     iscroller
@@ -93,26 +92,10 @@ Template.hello2.checked = function () {
     'click #toggle-right-menuClick, tap #toggle-right-menuTouch' :function () {
       sm.toggleRight();
     },
-      'click #insertAlertClick, tap #insertAlertTouch' :function () {
+      'click #insertAlert' :function () {
     Meteor.call('createAlert');
   },
     'click #updateAlerts' :function () {
     Meteor.call('updateAlerts');
   },
-   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
-          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
-        }, 
-        'touchmove #main-backdrop': function (e) {
-               e.preventDefault();
-               // alert("tap");
-               // alert("move");
-                // e.stopPropagation();
-             },
-    'webkitTransitionEnd #mainModal': function (e) {
-            // alert("END")
-            Session.set("hideOverflow", true);
-         }
   });
-
-
-  

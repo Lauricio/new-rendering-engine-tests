@@ -56,38 +56,27 @@
 //
 
 .main-modal {
-    position: fixed;
+    position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -10;
-  // display: none;
   visibility: hidden;
 
-
-    transform: translate3d(0, 200%, 0);
+    transform: translate3d(-100%, 0, 0);
     backface-visibility: hidden;
     // transform: scale(0.7);
-    // opacity: 0;
-    transition: all .5s;
+    opacity: 0;
+    transition: all .8s;
 
   &.is-visible {
     z-index: 100;
     visibility: visible;
     transform: translate3d(0, 0, 0);
       // transform: scale(1);
-    // opacity: 1;
-
-    .scrollable {
-      // display: block;
-    }
+    opacity: 1;
   }
-
-  .scrollable {
-    // display: none;
-  }
-
 }
 
 .main-modal-content {
@@ -99,7 +88,6 @@
   color:white;
   padding: 2em;
 background-color: @nephritis;
-// width: 20%;
 
 }
  
@@ -155,9 +143,6 @@ background-color: @nephritis;
 //
 
 .agenda-item {
-   -webkit-backface-visibility: hidden;
-  transition: none !important;
-
   display: flex;
 
   .icon {
@@ -249,9 +234,7 @@ background-color: @nephritis;
   right: 0;
 }
 
-.native-scroller {
-   -webkit-backface-visibility: hidden;
-  transition: none !important;
+.scroller {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -260,14 +243,13 @@ background-color: @nephritis;
   bottom: 0;
   left: 0;
   right: 0;
-  margin-top: -1px;
 }
 
 .content-holder-left {
   top: 108px !important;
 }
 
-.native-scroller-right {
+.scroller-right {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -285,50 +267,12 @@ background-color: @nephritis;
     transition-timing-function: linear, linear;
 }
 
-//
-//      Hide Overflow
-//
-
-.hide-overflow {
-  overflow: hidden;
-}
-
-.show-overflow {
-  -webkit-overflow-scrolling: touch;
-}
-
-
-//
-//      misc
-//
-
-
 .spark-wrapper {
   margin-top: 108px;
 }
 
 .rendering-wrapper {
   margin-top: 108px;
-}
-
-
-//
-//      Backdrop
-//
-
-.main-backdrop {
-  position: fixed;
-  top: 108px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background-color: rgba(0, 0, 0, 0.5);
-  // visibility: hidden;
-
-  .is-visible {
-
-  }
 }
 
 

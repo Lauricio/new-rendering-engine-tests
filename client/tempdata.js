@@ -38,7 +38,7 @@ Template.hello2.helpers({
 
 });
 
-Session.set("hideOverflow", false)
+
 
 
 Template.hello2.events({
@@ -48,37 +48,29 @@ Template.hello2.events({
     } else
           DataOnTime();
    },
-   'click #delete-agendaClick, tap #delete-agendaTouch': function () {
+   'click #delete-agenda': function () {
     Meteor.call('deleteAgenda')
    },
-   'click #insert-20-agendaClick, tap #insert-20-agendaTouch': function () {
+   'click #insert-agenda': function () {
     for (var i = 20; i >= 0; i--) {
       Agenda.insert({createdAt: new Date()})
     };
    },
      'click #open-modalClick, tap #open-modalTouch ' :function () {
         $( "#mainModal" ).addClass( "is-visible" );
-        // Session.set("hideOverflow", true)
         // StatusBar.hide();
     },
       'click #close-modalClick, tap #close-modalTouch' :function () {
-            // Session.set("hideOverflow", false)
             $( "#mainModal" ).removeClass( "is-visible" );
             // StatusBar.show();
         },
          'click #open-snap-modalClick, tap #open-snap-modalTouch ' :function () {
             $( "#snapMainModal" ).addClass( "is-visible" );
-            Session.set("hideOverflow", true)
             setheight();
             // StatusBar.hide();
         },
           'click .close-snap-modalClick, tap .close-snap-modalTouch' :function () {
-                Session.set("hideOverflow", false)
                 $( "#snapMainModal" ).removeClass( "is-visible" );
                 // StatusBar.show();
-            },
-        'click #test-overflowClick, tap #test-overflowTouch': function () {
-          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
-        }    
-
-});
+            }
+})

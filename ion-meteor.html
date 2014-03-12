@@ -23,15 +23,8 @@
 </head>
 
 <body>
- 
-
+  {{> hello2}}
 </body>
-
-<template name="layout">
-   {{> hello2}}
-
-
-</template>
 
 <template name="hello2">
 
@@ -41,10 +34,10 @@
   <div id="content" class="pane">
     <header class="bar bar-header bar-dark spark-header">
       <button class="button button-clear icon ion-navicon" id="toggle-left-menu{{Touch}}"></button>
-            <button class="button button-clear  ion-android-storage insert-button" id="insert-20-agenda{{Touch}}"></button>
+            <button class="button button-clear  ion-android-storage insert-button" id="insert-agenda"></button>
       {{> loginButtons}}
       <button class="button button-clear   ion-checkmark-circled insert-button" id="insert-agenda{{Touch}}"></button>
-      <button class="button button-clear icon ion-android-trash delete-button" id="delete-agenda{{Touch}}"></button>
+      <button class="button button-clear icon ion-android-trash delete-button" id="delete-agenda"></button>
       <h1 class="title">{{itemCount}}</h1>
       <button class="button button-clear" id="toggle-right-menu{{Touch}}">{{currentUser.unreadNotifications}} <span class="icon ion-ios7-bell"></span></button>
     </header>
@@ -53,8 +46,7 @@
       <button class="button button-clear icon ion-plus-round delete-button" id="updateAlerts"></button>
       <button class="button button-clear icon ion-chatbox-working delete-button" id="open-modal{{Touch}}"></button>
       <button class="button button-clear icon ion-beer delete-button" id="open-snap-modal{{Touch}}"></button>
-      <button class="button button-clear icon ion-levels delete-button" id="test-overflow{{Touch}}"></button>
-      <button class="button button-clear icon ion-chatbox delete-button" id="insertAlert{{Touch}}"></button>
+      <button class="button button-clear icon ion-chatbox delete-button" id="insertAlert"></button>
     </div>
     
       {{> ionscroller}}
@@ -65,7 +57,6 @@
         {{! > renderingTemplates}}
       </div>
   </div>
-  <!-- <div class="main-backdrop" id="main-backdrop"></div> -->
 
   <!-- Left menu -->
   <div id="menu-left" class="menu menu-left">
@@ -116,25 +107,19 @@
 
  
 <div class="main-modal" id="mainModal">
-  <div class="main-modal-content scrollable" id="modal-scroll" XXXdata-scrollable="y">
+  <div class="main-modal-content scrollable" id="modal-scroll" data-scrollable="y">
     
 <div>
 
-{{> layout}}
+
   <div>
       <p>The Default demo shows basic Snap.js functionality</p>
       <button id="close-modal{{Touch}}">modal</button> 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
-      <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
   </div>
   <div>
 
-  <label class="toggle">
-     <input type="checkbox">
-     <div class="track">
-       <div class="handle"></div>
-     </div>
-  </label>
+
       <p>The Default demo shows basic Snap.js functionality</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
   </div>
@@ -145,13 +130,6 @@
         <input type="text" class="form-control">
         <input type="text" class="form-control">
     <div>
-
-    <label class="toggle">
-       <input type="checkbox">
-       <div class="track">
-         <div class="handle"></div>
-       </div>
-    </label>
       <p>The Default demo shows basic Snap.js functionality</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
   </div>
@@ -171,3 +149,6 @@
 </div>
 
 </template>
+
+
+

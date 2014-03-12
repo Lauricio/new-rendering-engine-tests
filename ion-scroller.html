@@ -1,20 +1,5 @@
 <template name="ionscroller">
-  <div></div>
-
-
-<div class=" XXXscroll-content  has-header XXXcontent-holder-left" id="main-scroll" >
-<div class="native-scroller {{hideOverflow}} XXXspark-scrollable XXXscroll XXXspark-scrollable-height" >  
-          
-          <div class="list" id="main-list">
-          {{#each agenda}}
-            {{> agendaItem}}
-          {{/each}}
-          </div>
- </div>
- </div>    
-
-
-<!--   <div class=" scroll-content  has-header content-holder-left" id="main-scroll" >
+  <div class=" scroll-content  has-header content-holder-left" id="main-scroll" >
   <div class="XXXscroller XXXspark-scrollable XXXscroll XXXspark-scrollable-height" >
             
             <div class="list" id="main-list">
@@ -26,7 +11,7 @@
    </div>    
 
 <div class=" XXXscroll-content  has-header XXXcontent-holder-right" id="main-scroll" >
-  <div class="native-scroller-right XXXspark-scrollable XXXscroll XXXspark-scrollable-height" >
+  <div class="scroller-right XXXspark-scrollable XXXscroll XXXspark-scrollable-height" >
             
             <div class="list" id="main-list">
             {{#each agenda}}
@@ -34,7 +19,7 @@
             {{/each}}
             </div>
    </div>
-   </div>  -->      
+   </div>       
 </template>
 
 <template name="agendaItem">

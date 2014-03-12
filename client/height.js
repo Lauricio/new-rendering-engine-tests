@@ -1,10 +1,8 @@
-setheight = function  () {
+var setheight = function  () {
       var height = window.innerHeight - 64;
       // document.body.style.height = window.innerHeight + "px";
     Session.set("contentHeight", height + "px");
     Session.set("fullheight", window.innerHeight + "px");
-    snapModal = document.getElementById("snapMainModal") || {};
-    Session.set("output", "height: " + window.innerHeight + "width: " + window.innerWidth + "modal w: " + snapModal.offsetWidth)
 if (window) {
   if(window.innerHeight > window.innerWidth){
       console.log('%c land   ',  'background: #5D76DB; color: white; padding: 1px 15px 1px 5px;');

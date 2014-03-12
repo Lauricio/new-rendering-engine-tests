@@ -12,7 +12,7 @@ observeNewAlerts = function  () {
   // console.log('%c OBESERVE INSIDE   ',  'background: #BD4F7A; color: white; padding: 1px 15px 1px 5px;');
   
       var appOpened = new Date();
-      var lastViewedAlert = ""; //XXX fails when theres no profile
+      var lastViewedAlert = Meteor.user().lastViewedAlert; //XXX fails when theres no profile
       // console.log('%c lastViewedAlert   ',  'background: #B3CC57; color: white; padding: 1px 15px 1px 5px;', lastViewedAlert);
 
       var alertsCursor = Alerts.find(
