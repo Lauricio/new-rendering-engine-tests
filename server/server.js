@@ -9,13 +9,9 @@
    return  Alerts.find({}, {fields: {readBy: 0}});
  });
 
-  Meteor.publish("agendas", function () {
-   return  Agendas.find({});
+  Meteor.publish("agenda", function () {
+   return  Agenda.find({});
  });
-
-   Meteor.publish("speakers", function () {
-    return  Speakers.find({});
-  });
 
 Meteor.users.allow({update: function () { return true; }});
 
@@ -75,7 +71,7 @@ Meteor.users.allow({update: function () { return true; }});
     Alerts.remove({'_id' : createdBy});
   },
   deleteAgenda: function () {
-    Agendas.remove({})
+    Agenda.remove({})
   }
 })
 

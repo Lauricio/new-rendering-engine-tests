@@ -46,14 +46,14 @@
   left: 0;
 }
 
+#content {
+  z-index: 10;
+}
+
 
 //
 //      Scroll modal
-//ss
-.main-view {
-  z-index: 1000;
-  position: absolute;
-}
+//
 
 .main-modal {
     position: fixed;
@@ -61,34 +61,23 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 700px;
-  // position: relative;
-  // height: auto;
-  // width: auto;
-  // z-index: -10;
+  z-index: -10;
   // display: none;
   visibility: hidden;
-
-  .view-back {
-    padding-top: 40px;
-    padding-left: 30px;
-  }
 
 
     transform: translate3d(0, 200%, 0);
     backface-visibility: hidden;
     // transform: scale(0.7);
     // opacity: 0;
-    
     transition: all .5s;
 
   &.is-visible {
-    z-index: 1000;
+    z-index: 100;
     visibility: visible;
     transform: translate3d(0, 0, 0);
       // transform: scale(1);
     // opacity: 1;
-    transition: none;
 
     .scrollable {
       // display: block;
@@ -99,10 +88,7 @@
     // display: none;
   }
 
-
-
 }
-
 
 .main-modal-content {
   position: absolute;
@@ -115,19 +101,6 @@
 background-color: @nephritis;
 // width: 20%;
 
-}
-
-
-
-
-
-.each-modal {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
 }
  
 .main-snap-modal {
@@ -177,7 +150,35 @@ background-color: @nephritis;
 
 
 
+//
+//      Agenda item
+//
 
+.agenda-item {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
+
+  display: flex;
+
+  .icon {
+    text-align: center;
+    flex: 1;
+    background-color: @nephritis;
+    color: white;
+    font-size: 2em;
+    line-height: 1.3em;
+  }
+
+  .title {
+    flex: 10;
+    background-color: @item-background;
+    color: @dark-heading;
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    padding: 5px 10px;
+  }
+}
 
 
 //
@@ -308,11 +309,27 @@ background-color: @nephritis;
 
 .rendering-wrapper {
   margin-top: 108px;
-  padding: 1em;
 }
 
 
+//
+//      Backdrop
+//
 
+.main-backdrop {
+  position: fixed;
+  top: 108px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+  // visibility: hidden;
+
+  .is-visible {
+
+  }
+}
 
 
 //

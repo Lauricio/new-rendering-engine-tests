@@ -1,8 +1,7 @@
 Meteor.subscribe("alerts");
 Meteor.subscribe("notifications");
 Meteor.subscribe("forms");
-Meteor.subscribe("agendas");
-Meteor.subscribe("speakers");
+Meteor.subscribe("agenda");
 
 
 

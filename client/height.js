@@ -3,7 +3,7 @@ setheight = function  () {
       // document.body.style.height = window.innerHeight + "px";
     Session.set("contentHeight", height + "px");
     Session.set("fullheight", window.innerHeight + "px");
-    snapModal = document.getElementById("snapmainView") || {};
+    snapModal = document.getElementById("snapMainModal") || {};
     Session.set("output", "height: " + window.innerHeight + "width: " + window.innerWidth + "modal w: " + snapModal.offsetWidth)
 if (window) {
   if(window.innerHeight > window.innerWidth){

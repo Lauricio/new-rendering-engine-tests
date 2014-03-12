@@ -82,6 +82,7 @@ Template.hello2.checked = function () {
 };
 
 
+
   Template.hello2.events({
     'click #plus' :function () {
       Session.set("checker", Random.id())
@@ -98,24 +99,20 @@ Template.hello2.checked = function () {
     'click #updateAlerts' :function () {
     Meteor.call('updateAlerts');
   },
- 
+   'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
+          Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
+        }, 
         'touchmove #main-backdrop': function (e) {
                e.preventDefault();
                // alert("tap");
                // alert("move");
                 // e.stopPropagation();
-             }
+             },
+    'webkitTransitionEnd #mainModal': function (e) {
+            // alert("END")
+            Session.set("hideOverflow", true);
+         }
   });
-// 
 
 
-
-Template.speakerView.helpers({
-  speaker: function () {
-    return Speaker.findOne({_id: this.itemId});
-  }
-});
-
-
-
-
+  
