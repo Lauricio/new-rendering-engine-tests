@@ -1,0 +1,128 @@
+  @turquoise: #1ABC9C;
+@emerland: #2ECC71;
+@peter-river: #3498DB;
+@amethyst: #9B59B6;
+@wet-asphalt: #34495E;
+
+@green-sea: #16A085;
+@nephritis: #27AE60;
+@belize-hole: #2980B9;
+@wisteria: #8E44AD;
+@midnight-blue: #2C3E50;
+
+
+@sun-flower: #F1C40F;
+@carrot: #E67E22;
+@alizarin: #E74C3C;
+@clouds: #ECF0F1;
+@concrete: #95A5A6;
+
+@orange: #F39C12;
+@pumpkin: #D35400;
+@pomegranate: #C0392B;
+@silver: #BDC3C7;
+@asbestos: #7F8C8D;
+
+// Custom Flat Ui Colors
+@california-grapes: #BD4F7A;
+@lipstick #8C3557;
+
+// Spark UI
+@light-heading: #C3C4C5;
+@dark-heading: #545657;
+@background: #DDE3E6;
+@item-background :#F5F8FA;
+@faded-icon: #DDE3E6;
+@menu: #333;
+@menu-icon: #E4E4E4;
+
+
+
+  .view-list {
+     -webkit-backface-visibility: hidden;
+    transition: none !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    height: 400px;
+  }
+
+
+.agenda-view-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  // height: 500px;
+    transform: translate3d(0, 0, 0);
+    transition: all .5s;
+
+    &.animate {
+      transform: translate3d(200%, 0, 0);
+      backface-visibility: hidden;
+      // transition: all .5s;
+    }
+}
+
+.view-header {
+  height: 64px !important;
+}
+
+
+//
+//   TEMP   Agenda item
+//
+
+.agenda-item {
+   -webkit-backface-visibility: hidden;
+  transition: none !important;
+
+  display: flex;
+
+  .icon {
+    text-align: center;
+    flex: 1;
+    background-color: @nephritis;
+    color: white;
+    font-size: 2em;
+    line-height: 1.3em;
+    border: 1px solid white;
+
+    .view-list & {
+      background-color: @peter-river;
+
+    }
+  }
+
+  .title {
+    flex: 10;
+    background-color: @item-background;
+    color: @dark-heading;
+    margin: 0;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    padding: 5px 10px;
+  }
+}
+
+
+//
+//      Backdrop
+//
+
+.main-backdrop {
+  position: fixed;
+  top: 108px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, 0.5);
+  // visibility: hidden;
+
+  .is-visible {
+
+  }
+}

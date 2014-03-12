@@ -103,14 +103,6 @@
 
 }
 
-  .view-list {
-     -webkit-backface-visibility: hidden;
-    transition: none !important;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    height: 400px;
-  }
 
 .main-modal-content {
   position: absolute;
@@ -125,27 +117,9 @@ background-color: @nephritis;
 
 }
 
-.agenda-view-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  // height: 500px;
-    transform: translate3d(0, 0, 0);
-    transition: all .5s;
 
-    &.animate {
-      transform: translate3d(200%, 0, 0);
-      backface-visibility: hidden;
-      // transition: all .5s;
-    }
-}
 
-.view-header {
-  height: 64px !important;
-}
+
 
 .each-modal {
     position: absolute;
@@ -203,41 +177,7 @@ background-color: @nephritis;
 
 
 
-//
-//      Agenda item
-//
 
-.agenda-item {
-   -webkit-backface-visibility: hidden;
-  transition: none !important;
-
-  display: flex;
-
-  .icon {
-    text-align: center;
-    flex: 1;
-    background-color: @nephritis;
-    color: white;
-    font-size: 2em;
-    line-height: 1.3em;
-    border: 1px solid white;
-
-    .view-list & {
-      background-color: @peter-river;
-
-    }
-  }
-
-  .title {
-    flex: 10;
-    background-color: @item-background;
-    color: @dark-heading;
-    margin: 0;
-    font-size: 1.5em;
-    line-height: 1.3em;
-    padding: 5px 10px;
-  }
-}
 
 
 //
@@ -368,27 +308,11 @@ background-color: @nephritis;
 
 .rendering-wrapper {
   margin-top: 108px;
+  padding: 1em;
 }
 
 
-//
-//      Backdrop
-//
 
-.main-backdrop {
-  position: fixed;
-  top: 108px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 50;
-  background-color: rgba(0, 0, 0, 0.5);
-  // visibility: hidden;
-
-  .is-visible {
-
-  }
-}
 
 
 //

@@ -108,14 +108,7 @@ Template.hello2.checked = function () {
   });
 // 
 
-Template.mainModal.helpers({
-  views: function () {
-    return AppViews.find()
-  },
-  visible: function () {
-    return Session.equals('mainViewVisible', true) ? 'is-visible': '';
-  }
-})
+
 
 Template.speakerView.helpers({
   speaker: function () {
@@ -123,28 +116,6 @@ Template.speakerView.helpers({
   }
 });
 
-Template.agendaView.helpers({
-  agenda: function () {
-    return Agendas.findOne({_id: this.itemId});
-  }
-})
 
-Template.mainModal.events({
-  // 'webkitTransitionEnd #mainModal': function (e) {
-  //         // alert("END")
-  //         Session.set("hideOverflow", true);
-  // },
 
-  'click #test-overflow-modalClick, tap #test-overflow-modalTouch': function () {
-         Session.equals('hideOverflow', true) ? Session.set("hideOverflow", false) : Session.set('hideOverflow', true);
-  },
-  'click #close-modalClick, tap #close-modalTouch' :function () {
-    Session.set('mainViewVisible', false)
-    },
-  'click .js-closeViewClick, tap .js-closeViewTouch'  : function (e, t) {
-      ViewsControl.back(this._id)
-  },
-  'click .js-closeMainModalClick, tap .js-closeMainModalTouch': function () {
-      Session.set('mainViewVisible', false)
-  }
-})
+

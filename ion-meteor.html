@@ -24,30 +24,28 @@
 
 <body>
  
-
+ {{> hello2}}
 </body>
 
-<template name="layout">
-   {{> hello2}}
 
-   {{> yield}}
-</template>
 
 <template name="hello2">
-  {{> mainModal}}
+  {{> mainView}}
   {{> snapModal}}
-  {{> spinner}}
+  {{> loader}}
+
   <!-- Center content -->
   <div id="content" class="pane">
     <header class="bar bar-header bar-dark spark-header">
       <button class="button button-clear icon ion-navicon" id="toggle-left-menu{{Touch}}"></button>
             <button class="button button-clear  ion-android-storage insert-button" id="insert-20-agenda{{Touch}}"></button>
-      {{> loginButtons}}
+      
       <button class="button button-clear   ion-checkmark-circled insert-button" id="insert-agenda{{Touch}}"></button>
       <button class="button button-clear icon ion-android-trash delete-button" id="delete-agenda{{Touch}}"></button>
       <h1 class="title">{{itemCount}}</h1>
       <button class="button button-clear" id="toggle-right-menu{{Touch}}">{{currentUser.unreadNotifications}} <span class="icon ion-ios7-bell"></span></button>
     </header>
+    {{> loginButtons}}
     <div class="spark-sub-header bar bar-dark">
 
       <button class="button button-clear icon ion-plus-round delete-button" id="updateAlerts"></button>
@@ -57,13 +55,14 @@
       <button class="button button-clear icon ion-chatbox delete-button" id="insertAlert{{Touch}}"></button>
     </div>
     
-      {{> ionscroller}}
+      {{! > ionscroller}}
       {{! > nativescroller}}
       {{! > nativescrollerspark}}
 
       <div class="rendering-wrapper">
-        {{! > renderingTemplates}}
+        {{> renderingTemplates}}
       </div>
+
   </div>
   <!-- <div class="main-backdrop" id="main-backdrop"></div> -->
 
@@ -119,52 +118,9 @@
 
 </template>
 
-<template name="spinner">
-  <div class="spinner {{visible}}" id="spinner">
-    <div class="bounce1"></div>
-    <div class="bounce2"></div>
-    <div class="bounce3"></div>
-  </div>
-</template>
 
 
-<template name="mainModal">
-  <!-- <div class="XXXmain-modal main-view" id="mainModal"> -->
-  <!-- <div class="XXXmain-modal-content XXXscrollable" id="modal-scroll" XXXdata-scrollable="y"> -->
-<!--   <h1>plevele</h1>
-  <h1>plevele</h1>
-  <h1>plevele</h1> -->
-  {{#each views}}
-    <!-- <div  class="each-modal"> -->
-      {{> AnimateTemplate template=type}}
-    <!-- </div> -->
-  {{/each}}
-<!-- </div> -->
-<!-- </div> -->
-</template>
 
-<template name="agendaView">
-    <div class="agenda-view-wrapper animate" style="background-color:#1abc9c;" id={{_id}}>
-    <div class="view-back">
-    <div class="view-header bar bar-dark">
-      <button class="button button-clear icon ion-ios7-arrow-back js-closeView{{Touch}}"></button>
-    </div>
-      <button class="button button-clear icon ion-ios7-arrow-back js-closeView{{Touch}}"></button> 
-            <button class="button js-closeMainModal{{Touch}}">modal</button> 
-      </div>
-      <h1>works</h1>
-      {{#with agenda}}
-         <h1>{{_id}}</h1>
-
-      {{/with}}
-
-      <div class="view-list">
-          {{#each agendas}}
-            {{> agendaItem}}
-          {{/each}}
-      </div>
-    </div>
-</template>
 
 
 <template name="speakerView">
@@ -176,7 +132,7 @@
 
    <div>
         <p>The Default demo shows basic Snap.js functionality</p>
-        <button class="js-closeMainModal{{Touch}}">modal</button>  
+        <button class="js-closemainView{{Touch}}">modal</button>  
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla non erat ac leo ultrices blandit sed vel risus. Pellentesque facilisis blandit auctor. Maecenas vestibulum vulputate tincidunt. Mauris nec quam libero. Fusce eget ligula non leo varius condimentum quis ac elit. Donec id urna ut neque semper ultrices. Proin ut suscipit felis. Nullam neque felis, ullamcorper scelerisque volutpat vel, vehicula vehicula neque. Aenean scelerisque elit ac erat sagittis ullamcorper.</p>
         <button class="button button-clear icon ion-levels delete-button" id="test-overflow-modal{{Touch}}"></button>
    
@@ -186,7 +142,7 @@
 </template>
 
 
-<template name="mainModalContent2">
+<template name="mainViewContent2">
   <div class="main-modal-wrapper animate" style="background-color:#e74c3c;" id={{_id}}>
     <div>
         <p>The Default demo shows basic Snap.js functionality</p>
@@ -199,7 +155,7 @@
 </template>
 
 
-<template name="mainModalContent3">
+<template name="mainViewContent3">
   <div class="main-modal-wrapper animate" style="background-color:#34495e;" id={{_id}}>
     <div>
         <p>The Default demo shows basic Snap.js functionality</p>
